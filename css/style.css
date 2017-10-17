@@ -1,0 +1,132 @@
+body {
+    margin: auto;
+    background: radial-gradient(farthest-side at 50%, #2196F3, #42A5F5);
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: linear-gradient(to bottom right, #0B314F, #0A2C47);
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+li {
+    float: left;
+}
+
+.active{
+    color: white;
+    border-bottom-style: solid;
+    border-bottom-color: whitesmoke;
+}
+
+.right {
+    float: right;
+}
+
+li span {
+    display: block;
+    padding: 20px;
+    text-align: center;
+    font-family: tahoma;
+    color: #D5DDDE;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+li span:hover:not(.active) {
+    background: linear-gradient(to bottom right, #000E21,#00122B);
+    border-bottom-style: solid;
+    border-bottom-color: #00122B;
+}
+
+.title {
+    font-family: tahoma;
+    color: whitesmoke;
+    font-size: 60;
+    margin: auto;
+    font-weight: 600;
+    margin-top: 15%;
+    margin-left: 20%;
+}
+
+.message {
+    font-family: tahoma;
+    color: whitesmoke;
+    font-size: 20;
+    margin-left: 3%;
+}
+
+.input {
+    margin-top: 2%;
+    margin-left: 20%;
+}
+
+.inputText {
+    width: 800px;
+    height: 50px;
+    font-size: 28;
+    padding-left: 20px;
+    border: 3px solid #9EA9AB;
+    transition: 0.5s;
+}
+
+.inputText:focus {
+    border: 3px solid #282B2B !important;
+    transition: 0.5s;
+}
+
+/* BUTTONS IN LOGIN */
+
+.button {
+    width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    min-width: 130px;
+    height: 50;
+    font-size: 16;
+    color: whitesmoke;
+    background-color: #455A64;
+    border: none;
+    cursor: pointer;
+}
+
+.button span {
+    cursor: pointer;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span::after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button.moveRight {
+    margin-left: 50px;
+}
+
+.button:hover {
+    background-color: #37474F;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button:hover span::after {
+    opacity: 1;
+    right: 0;
+}
+
+.button:active {
+    background-color: #263238;
+    border: 2px solid #1D272B;
+}

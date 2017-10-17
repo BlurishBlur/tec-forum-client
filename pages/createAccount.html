@@ -1,0 +1,25 @@
+<script type="text/javascript">
+  if(typeof angular === 'undefined'){
+    document.location.href="/404";
+  }
+</script>
+
+<div>
+    <div class="title">
+        CREATE ACCOUNT
+    </div>
+    <div class="input">
+        <input id="username" type="text" class="inputText" ng-model="username" placeholder="Username..." />
+        <span class="message"> {{usernameReturnMessage}} </span>
+        <br><br><br>
+        <input id="password" type="password" class="inputText" ng-keyup="checkPasswordMatch()" ng-model="password" placeholder="Password..."  />
+        <span class="message"> {{passwordReturnMessage}} </span>
+        <br><br><br>
+        <input id="repeat" type="password" class="inputText" ng-keyup="checkPasswordMatch()" ng-model="repeat" placeholder="Repeat Password..."  />
+        <span class="message"> {{repeatPasswordReturnMessage}} </span>
+        <br><br><br>
+        <button id="create" class="button" ng-click="createUser()"><span>CREATE</span></button>
+        <button id="cancel" class="button moveRight" onclick="location.href='/'"><span>CANCEL</span></button>
+        <span id="returnMessage" class="message"> {{returnMessage}} </span>
+    </div>
+</div>
