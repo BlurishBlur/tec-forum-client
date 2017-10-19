@@ -9,7 +9,6 @@ ul {
     padding: 0;
     overflow: hidden;
     background: linear-gradient(to bottom right, #0B314F, #0A2C47);
-    position: fixed;
     top: 0;
     width: 100%;
 }
@@ -25,7 +24,7 @@ li {
 }
 
 .right {
-    float: right;
+    float: right; 
 }
 
 li span {
@@ -45,11 +44,12 @@ li span {
     position: fixed;
     background-color: #BCDAF3;
     min-width: 170px;
+    z-index: 1;
 }
 
 .dropdown-content span {
     color: black;
-    padding: 16px
+    padding: 16px;
     text-decoration: none;
     display: block;
     text-align: left;
