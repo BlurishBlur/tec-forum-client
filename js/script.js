@@ -105,14 +105,13 @@ forumApp.controller('loginCtrl', function ($scope, $location) {
             if (logInDTO.loggedIn === true) {
             	sessionStorage.setItem('user', JSON.stringify($scope.username)); //skal laves om til at holde id
                 $location.path('/dashboard');
-                $scope.$apply();
             }
             else {
                 $scope.loginReturnMessage = logInDTO.message;
-                $scope.$apply();
                 colorBorderRed($j("#username"));
 				colorBorderRed($j("#password"));
             }
+            $scope.$apply();
         });
     };
     
@@ -152,7 +151,8 @@ forumApp.controller('createAccountCtrl', function ($scope) {
             userObjJson = JSON.stringify(userObj);
 
         put(getUrl(route), userObjJson, function (content) {
-            $scope.returnMessage = content;
+            var saveUserDTO = JSON.parse(content);
+            $scope.returnMessage = saveUserDTO.message;
             $scope.$apply()
         });
     };
