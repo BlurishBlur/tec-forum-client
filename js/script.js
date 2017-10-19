@@ -3,11 +3,17 @@
 /*global $, jQuery, alert*/
 var $j = jQuery.noConflict();
 var forumApp = angular.module('forumApp', ['ngRoute']);
+var config;
 
-const PORT = 8761;
-const SERVER = "localhost";
-const BASE_URL = "http://" + SERVER + ":" + PORT;
-var urlUsers = "/users";
+$j.getJSON('./cfg/config.json', function(response) {
+    config = response;
+    console.log(config);
+});
+
+function getUrl(route) {
+    console.log("http://%s:%s%s", config.host, config.port, config.routes[route]);
+    return "http://" + config.host + ":" + config.port + config.routes[route];
+}
 
 function colorBorderRed(inputElement) {
 	inputElement.css("border", "3px solid #840200");
@@ -70,16 +76,13 @@ forumApp.config(function($routeProvider, $locationProvider) {
 
 forumApp.controller('loginCtrl', function ($scope, $location) {
     "use strict";
+    var route = "users";
 
     $j('#password').keypress(function(e) { //Enter keypress
   		if(e.keyCode==13) {
   			$j('#loginButton').click();
   		}
     });
-
-    function getUsersUrl() {
-        return BASE_URL + urlUsers;
-    }
     
     function post (url, data, callback) {
         var xmlHttp = new XMLHttpRequest();
@@ -96,7 +99,7 @@ forumApp.controller('loginCtrl', function ($scope, $location) {
         var userObj = {username: $scope.username, password: $scope.password},
             userObjJson = JSON.stringify(userObj);
 
-        post(getUsersUrl(), userObjJson, function (content) {
+        post(getUrl(route), userObjJson, function (content) {
             var loggedIn = JSON.parse(content);
             sessionStorage.setItem('loggedIn', JSON.stringify(loggedIn));
             if (loggedIn === true) {
@@ -125,16 +128,13 @@ forumApp.controller('loginCtrl', function ($scope, $location) {
 
 forumApp.controller('createAccountCtrl', function ($scope) {
     "use strict";
+    var route = "users";
 
     $j('#repeat').keypress(function(e){
   		if(e.keyCode==13) {
   			$j('#create').click();
   		}
     });
-
-    function getUsersUrl() {
-        return BASE_URL + urlUsers;
-    }
     
     function put (url, data, callback) {
         var xmlHttp = new XMLHttpRequest();
@@ -151,7 +151,7 @@ forumApp.controller('createAccountCtrl', function ($scope) {
         var userObj = {username: $scope.username, password: $scope.password},
             userObjJson = JSON.stringify(userObj);
 
-        put(getUsersUrl(), userObjJson, function (content) {
+        put(getUrl(route), userObjJson, function (content) {
             $scope.returnMessage = content;
             $scope.$apply()
         });

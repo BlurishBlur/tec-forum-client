@@ -1,0 +1,7 @@
+{
+    "host": "localhost", 
+    "port": 8761, 
+    "routes": {
+        "users": "/users"
+    }
+}
