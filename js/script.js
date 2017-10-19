@@ -100,15 +100,16 @@ forumApp.controller('loginCtrl', function ($scope, $location) {
             userObjJson = JSON.stringify(userObj);
 
         post(getUrl(route), userObjJson, function (content) {
-            var loggedIn = JSON.parse(content);
-            sessionStorage.setItem('loggedIn', JSON.stringify(loggedIn));
-            if (loggedIn === true) {
-            	sessionStorage.setItem('user', JSON.stringify($scope.username));
+            var logInDTO = JSON.parse(content);
+
+            sessionStorage.setItem('loggedIn', JSON.stringify(logInDTO.loggedIn));
+            if (logInDTO.loggedIn === true) {
+            	sessionStorage.setItem('user', JSON.stringify($scope.username)); //skal laves om til at holde id
                 $location.path('/dashboard');
                 $scope.$apply();
             }
             else {
-                $scope.loginReturnMessage = "Wrong username or password";
+                $scope.loginReturnMessage = logInDTO.message;
                 $scope.$apply();
                 colorBorderRed($j("#username"));
 				colorBorderRed($j("#password"));
