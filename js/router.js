@@ -13,7 +13,7 @@ angular.module('forumApp').config(function($routeProvider, $locationProvider) {
                 }
             }
         }, 
-        templateUrl: 'pages/login.html', 
+        templateUrl: 'partials/login.html', 
         controller: 'loginCtrl'
     })
     .when('/create', {
@@ -26,7 +26,7 @@ angular.module('forumApp').config(function($routeProvider, $locationProvider) {
                 }
             }
         }, 
-        templateUrl: 'pages/createAccount.html', 
+        templateUrl: 'partials/createAccount.html', 
         controller: 'createAccountCtrl'
     })
     .when('/dashboard', {
@@ -39,11 +39,11 @@ angular.module('forumApp').config(function($routeProvider, $locationProvider) {
                 }
             }
         }, 
-        templateUrl: 'pages/dashboard.html', 
+        templateUrl: 'partials/dashboard.html', 
         controller: 'dashboardCtrl'
     })
     .when('/404', {
-        templateUrl: 'pages/404.html'
+        templateUrl: 'partials/404.html'
     })
     .otherwise({
         redirectTo: '/404'

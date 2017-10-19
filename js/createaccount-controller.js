@@ -70,6 +70,10 @@ angular.module('forumApp').controller('createAccountCtrl', function ($scope, $ro
         else {
             $scope.returnMessage = "There " + (errors > 1 ? " were " + errors + " errors" : " was 1 error") + ".";
         }
-    };
+    }
+
+    $scope.goToHome = function() {
+        $location.path('/');
+    }
 
 });

@@ -6,7 +6,7 @@ angular.module('forumApp').controller('dashboardCtrl', function ($scope, $locati
 
     $scope.username = JSON.parse(sessionStorage.getItem('user'));
 
-    $scope.gotoHome = function() {
+    $scope.goToHome = function() {
         $location.path('/dashboard');
     }
 
