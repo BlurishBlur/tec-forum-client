@@ -7,7 +7,6 @@ var config;
 
 $j.getJSON('./cfg/config.json', function(response) {
     config = response;
-    console.log(config);
 });
 
 function getUrl(route) {
