@@ -38,6 +38,41 @@ li span {
     cursor: pointer;
 }
 
+/* -------------------------DROPDOWN PROPERTIES -----------------------*/
+
+.dropdown-content {
+    display: none;
+    position: fixed;
+    background-color: #f9f9f9;
+    min-width: 170px;
+}
+
+.dropdown-content span {
+    color: black;
+    padding: 16px
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+li span:hover, .dropdown:hover .dropbutton {
+    background: linear-gradient(to bottom right, #000E21,#00122B);
+    border-bottom-style: solid;
+    border-bottom-color: #00122B;
+}
+
+.dropdown-content .subSpan:hover {
+    color: white;
+    background: linear-gradient(to bottom right, #000E21,#00122B);
+    border-bottom: none;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* ----------------------- DROPDOWN END ---------------------------- */
+
 li span:hover:not(.active) {
     background: linear-gradient(to bottom right, #000E21,#00122B);
     border-bottom-style: solid;
