@@ -1,8 +1,11 @@
 /*global angular*/
 /*jslint browser: true*/
 /*global $, jQuery, alert*/
+
 angular.module('forumApp').controller('dashboardCtrl', function ($scope, $location) {
     "use strict";
+
+    $j("#popUpBox").hide();
 
     $scope.username = JSON.parse(sessionStorage.getItem('user'));
 
@@ -16,10 +19,10 @@ angular.module('forumApp').controller('dashboardCtrl', function ($scope, $locati
     }
 	
 	$scope.showWarning = function() {
-	    changeDisplay($j("#popUpBox"), "block");
+	    $j("#popUpBox").show();
 	}
 
 	$scope.close = function() {
-	    changeDisplay($j("#popUpBox"), "none");
+	    $j("#popUpBox").hide();
 	}
 });
