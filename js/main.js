@@ -27,6 +27,10 @@ function colorBorderGrey(inputElement) {
 	inputElement.css("border", "3px solid #9EA9AB");
 }
 
+function changeDisplay(inputElement, toSet) {
+    inputElement.css("display", toSet);   
+}
+
 function put (url, data, callback) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function () {
