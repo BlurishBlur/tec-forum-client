@@ -5,7 +5,7 @@
 angular.module('forumApp').controller('headerCtrl', function ($scope, $location) {
     "use strict";
 
-    //$scope.header = {name: 'header.html', url: './partials/header.html'};
+    $scope.header = {name: 'header.html', url: './partials/header.html'};
 
     $scope.isLoggedIn = function() {
         var isLoggedIn = JSON.parse(sessionStorage.getItem('loggedIn'));
