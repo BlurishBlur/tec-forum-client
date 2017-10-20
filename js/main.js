@@ -1,8 +1,8 @@
 /*global angular*/
 /*jslint browser: true*/
 /*global $, jQuery, alert*/
-$j.getScript('./js/header-controller.js');
 var $j = jQuery.noConflict();
+$j.getScript('./js/header-controller.js');
 var app = angular.module('forumApp', ['ngRoute']);
 var route = '';
 var config;
