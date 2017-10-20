@@ -3,14 +3,16 @@
 /*global $, jQuery, alert*/
 route = 'users';
 
-$j('#repeat').keypress(function(e){
-    if(e.keyCode==13) {
-        $j('#create').click();
-    }
-});
+
 
 angular.module('forumApp').controller('createAccountCtrl', function ($scope, $location) {
     "use strict";
+
+    $j('#repeat').keypress(function(e){
+        if(e.keyCode==13) {
+            $j('#create').click();
+        }
+    });
 
     $scope.putUser = function () {
         var userObj = JSON.stringify( {username: $scope.username, password: $scope.password} );

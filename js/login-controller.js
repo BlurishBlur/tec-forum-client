@@ -3,16 +3,16 @@
 /*global $, jQuery, alert*/
 route = 'users';
 
-$j('#password').keypress(function(e) { //Enter keypress
-    if(e.keyCode==13) {
-        $j('#loginButton').click();
-    }
-});
 
-angular.module('forumApp').controller('loginCtrl', function ($scope, $location, $rootScope) {
+
+angular.module('forumApp').controller('loginCtrl', function ($scope, $location) {
     "use strict";
 
-    $rootScope.test = "b";
+    $j('#password').keypress(function(e) { //Enter keypress
+        if(e.keyCode==13) {
+            $j('#loginButton').click();
+        }
+    });
 
     $scope.postUser = function () {
         var userObj = JSON.stringify( {username: $scope.username, password: $scope.password} );
