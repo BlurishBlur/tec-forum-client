@@ -82,6 +82,77 @@ li span:hover:not(.active) {
     border-bottom-color: #00122B;
 }
 
+/* ----------------------- POP UP BOX PROPERTIES ---------------------------- */
+
+.popUpBox {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.popUpBox-content {
+    background-color: #BCDAF3;
+    position: relative;
+    font-family: tahoma;
+    margin: 15% auto;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animate;
+    animation-duration: 0.4s;
+}
+
+@keyframes animate {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.close:hover,
+.close:focus {
+    color: #840200;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.boxHeader {
+    padding: 2px 20px;
+    background-color: #000E21;
+    color: whitesmoke;
+    font-size: 18;
+}
+
+.boxBody {
+    padding: 2px 20px;
+    font-size: 18;
+}
+
+.goOutAnimation {
+    animation-name: animateOut;
+    animation-duration: 0.4s;
+}
+
+@keyframes animateOut {
+    from {top:0; opacity:1}
+    to {top:-300px; opacity:0}
+}
+
+/* ----------------------- POP UP BOX END ---------------------------- */
+
 .title {
     font-family: tahoma;
     color: whitesmoke;

@@ -15,4 +15,20 @@ angular.module('forumApp').controller('dashboardCtrl', function ($scope, $locati
         $location.path('/');
     }
 
+    var box = document.getElementById('myBox');
+	var span = document.getElementsByClassName("close")[0];
+	
+	$scope.showWarning = function() {
+	    box.style.display = "block";
+	}
+
+	$scope.close = function() {
+	    box.style.display = "none";
+	}
+	
+	window.onclick = function(event) {
+	    if (event.target == box) {
+        	box.style.display = "none";
+    	}
+	}
 });

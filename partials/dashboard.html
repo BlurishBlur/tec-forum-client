@@ -13,8 +13,21 @@
 			<span href="javascript:void(0)" class="dropbutton">My Account ({{username}})</span>
 			<div class="dropdown-content">
 				<span class="subSpan">Change Password</span>
-				<span class="subSpan">Delete Account</span>
+				<span ng-click="showWarning()" class="subSpan">Delete Account</span>
 			</div>
 		</li>
 	</ul>
+	<div id="myBox" class="popUpBox">
+  		<div class="popUpBox-content">
+  			<div class="boxHeader">
+  				<span ng-click="close()" class="close">&times;</span>
+  				<p>DELETE ACCOUNT</p>
+  			</div>
+  			<div class="boxBody">
+  				<p>You are about to delete your account.</p>
+  				<p>Are you sure?<br><br></p>
+  				<button class="button"><span>OK</span></button><button class="button right" ng-click="close()"><span>CANCEL</span></button><br><br>	
+  			</div>
+  		</div>
+	</div>
 </body>
