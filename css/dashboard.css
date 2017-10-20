@@ -1,6 +1,6 @@
 .content {
     margin: 30px auto 0 auto;
-    width: 950px;
+    width: 1200px;
     height: 100px;
     border: 0px solid black;
 }
@@ -41,12 +41,12 @@
     margin-bottom: 10px;
 }
 
-.dashboard-title-header a {
+.dashboard-content a {
     text-decoration: none;
     color: #4c585f;
 }
 
-.dashboard-title-header a:hover {
+.dashboard-content a:hover {
     cursor: pointer;
     color: #4e8cb3;
     
@@ -54,31 +54,44 @@
 
 .dashboard-title {
     width: 400px;
+    margin-right: 30px;
 }
 
 .dashboard-comments {
-    width: 120px;
-    text-align: center;
+    width: 100px;
+    margin-right: 30px;
 }
 
 .dashboard-comments-text {
-    font-size: 1.4em;
+    font-size: 1.2rem;
 }
 
 .dashboard-author {
     width: 200px;
-    text-align: center;
+    margin-right: 30px;
 }
 
 .dashboard-author-text {
-    font-size: 1.4em;
+    font-size: 1.2rem;
 }
 
 .dashboard-freshness {
-    width: 170px;
-    text-align: center;
+    width: 150px;
+    margin-right: 30px;
 }
 
 .dashboard-freshness-text {
-    font-size: 1.2em;
+    font-size: 1rem;
+}
+
+.dashboard-latest {
+    max-width: 395px;
+}
+
+.dashboard-latest-author {
+    font-size: 1rem;
+}
+
+.dashboard-latest-timestamp {
+    font-size: 0.8rem;
 }
