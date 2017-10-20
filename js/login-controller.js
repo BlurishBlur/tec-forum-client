@@ -3,13 +3,11 @@
 /*global $, jQuery, alert*/
 route = 'users';
 
-
-
 angular.module('forumApp').controller('loginCtrl', function ($scope, $location) {
     "use strict";
 
     $j('#password').keypress(function(e) { //Enter keypress
-        if(e.keyCode==13) {
+        if(e.keyCode == 13) {
             $j('#loginButton').click();
         }
     });

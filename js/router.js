@@ -1,6 +1,7 @@
 /*global angular*/
 /*jslint browser: true*/
 /*global $, jQuery, alert*/
+
 angular.module('forumApp').config(function($routeProvider, $locationProvider) {
     $routeProvider
     .when('/', {

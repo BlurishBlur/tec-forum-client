@@ -3,6 +3,7 @@
     document.location.href="/404";
   }
 </script>
+
 <ul>
 	<li><span class="active" ng-click="goToHome()">Home</span></li>
 	<li><span href="/categories">Categories</span></li>
@@ -17,15 +18,15 @@
 	</li>
 </ul>
 <div id="popUpBox" class="popUpBox">
-		<div class="popUpBox-content">
-			<div class="boxHeader">
-				<span ng-click="close()" id="close" class="close">&times;</span>
-				<p>DELETE ACCOUNT</p>
-			</div>
-			<div class="boxBody">
-				<p>You are about to delete your account.</p>
-				<p>Are you sure?<br><br></p>
-				<button class="button"><span>OK</span></button><button class="button right" ng-click="close()"><span>CANCEL</span></button><br><br>	
-			</div>
+	<div class="popUpBox-content">
+		<div class="boxHeader">
+			<span ng-click="close()" id="close" class="close">&times;</span>
+			<p>DELETE ACCOUNT</p>
 		</div>
+		<div class="boxBody">
+			<p>You are about to delete your account.</p>
+			<p>Are you sure?<br><br></p>
+			<button class="button"><span>OK</span></button><button class="button right" ng-click="close()"><span>CANCEL</span></button><br><br>	
+		</div>
+	</div>
 </div>

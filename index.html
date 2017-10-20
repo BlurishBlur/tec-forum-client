@@ -12,7 +12,7 @@
     </head>
     <body>
         <div ng-controller='headerCtrl'>
-            <div ng-include src='header.url'></div>
+            <div ng-include src='header.url' ng-show="isLoggedIn()"></div>
         </div>
     	<div ng-view></div>
     </body>

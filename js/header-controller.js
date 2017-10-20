@@ -6,10 +6,11 @@ angular.module('forumApp').controller('headerCtrl', function ($scope, $location)
     "use strict";
 
     $scope.header = {name: 'header.html', url: './partials/header.html'};
-
-    //$j("#popUpBox").hide();
-
     $scope.username = JSON.parse(sessionStorage.getItem('user'));
+
+    $scope.isLoggedIn = function() {
+        return JSON.parse(sessionStorage.getItem('loggedIn'));
+    }
 
     $scope.goToHome = function() {
         $location.path('/dashboard');
