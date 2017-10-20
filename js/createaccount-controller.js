@@ -9,10 +9,8 @@ $j('#repeat').keypress(function(e){
     }
 });
 
-angular.module('forumApp').controller('createAccountCtrl', function ($scope, $rootScope) {
+angular.module('forumApp').controller('createAccountCtrl', function ($scope, $location) {
     "use strict";
-
-    console.log($rootScope.test);
 
     $scope.putUser = function () {
         var userObj = JSON.stringify( {username: $scope.username, password: $scope.password} );
