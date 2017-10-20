@@ -11,6 +11,9 @@
         <script src="js/main.js"></script>
     </head>
     <body>
+        <div ng-controller='headerCtrl'>
+            <div ng-include src='header.url'></div>
+        </div>
     	<div ng-view></div>
     </body>
 </html>

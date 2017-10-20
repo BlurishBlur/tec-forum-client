@@ -3,13 +3,11 @@
 /*global $, jQuery, alert*/
 route = 'users';
 
-
-
 angular.module('forumApp').controller('createAccountCtrl', function ($scope, $location) {
     "use strict";
 
     $j('#repeat').keypress(function(e){
-        if(e.keyCode==13) {
+        if(e.keyCode == 13) {
             $j('#create').click();
         }
     });

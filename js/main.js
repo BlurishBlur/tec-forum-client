@@ -10,6 +10,7 @@ $j.getJSON('./cfg/config.json', function(response) {
 });
 
 $j.getScript('./js/router.js');
+$j.getScript('./js/header-controller.js');
 $j.getScript('./js/login-controller.js');
 $j.getScript('./js/createaccount-controller.js');
 $j.getScript('./js/dashboard-controller.js');
