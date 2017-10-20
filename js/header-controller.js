@@ -5,11 +5,14 @@
 angular.module('forumApp').controller('headerCtrl', function ($scope, $location) {
     "use strict";
 
-    $scope.header = {name: 'header.html', url: './partials/header.html'};
-    $scope.username = JSON.parse(sessionStorage.getItem('user'));
+    //$scope.header = {name: 'header.html', url: './partials/header.html'};
 
     $scope.isLoggedIn = function() {
-        return JSON.parse(sessionStorage.getItem('loggedIn'));
+        var isLoggedIn = JSON.parse(sessionStorage.getItem('loggedIn'));
+        if(isLoggedIn === true) {
+            $scope.username = JSON.parse(sessionStorage.getItem('user'));
+        }
+        return isLoggedIn;
     }
 
     $scope.goToHome = function() {
