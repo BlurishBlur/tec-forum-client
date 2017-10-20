@@ -43,6 +43,19 @@ angular.module('forumApp').config(function($routeProvider, $locationProvider) {
         templateUrl: 'partials/dashboard.html', 
         controller: 'dashboardCtrl'
     })
+    .when('/categories', {
+        resolve: {
+            "check": function($location) {
+                var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn'));
+                if(!loggedIn) {
+                    $location.path('/');
+                    
+                }
+            }
+        }, 
+        templateUrl: 'partials/categories.html', 
+        controller: 'dashboardCtrl'
+    })
     .when('/404', {
         templateUrl: 'partials/404.html'
     })

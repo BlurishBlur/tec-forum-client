@@ -38,6 +38,16 @@ li span {
     cursor: pointer;
 }
 
+li a {
+    display: block;
+    padding: 20px;
+    text-align: center;
+    font-family: tahoma;
+    color: #D5DDDE;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 /* -------------------------DROPDOWN PROPERTIES -----------------------*/
 
 .dropdown-content {
