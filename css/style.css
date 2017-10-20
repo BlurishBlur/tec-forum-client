@@ -56,7 +56,7 @@ li span {
     border-bottom: 1px solid #8CA2B5;
 }
 
-li span:hover, .dropdown:hover .dropbutton {
+.dropButton:hover, .dropdown:hover .dropbutton {
     background: linear-gradient(to bottom right, #000E21,#00122B);
     border-bottom-style: solid;
     border-bottom-color: #00122B;
