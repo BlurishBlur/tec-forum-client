@@ -1,0 +1,15 @@
+.content {
+    margin: 20px auto 0 auto;
+    width: 950px;
+    height: 100px;
+    border: 1px solid black;
+}
+
+.dashboard-content-header {
+    border-bottom: 1px solid #EEE;
+}
+
+.dashboard-content-header span {
+    background-color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
