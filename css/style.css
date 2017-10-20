@@ -1,6 +1,7 @@
 body {
     margin: auto;
-    background: radial-gradient(farthest-side at 50%, #2196F3, #42A5F5);
+/*     background: radial-gradient(farthest-side at 50%, #2196F3, #42A5F5); */
+    background: rgb(241, 241, 241);
 }
 
 ul {
