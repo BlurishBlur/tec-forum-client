@@ -47,7 +47,12 @@ angular.module('forumApp').controller('headerCtrl', function ($scope, $location)
 	    $j("#popUpBox").show();
 	}
 
+    $scope.changePassword = function() {
+        $j("#popUpPasswordChange").show();
+    }
+
 	$scope.close = function() {
 	    $j("#popUpBox").hide();
+        $j("#popUpPasswordChange").hide();
 	}
 });
