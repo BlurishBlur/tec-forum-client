@@ -12,11 +12,12 @@ angular.module('forumApp').controller('userCtrl', function ($scope, $location, $
 
     function getUser () {
         getWithParams(getUrl('users'), $routeParams.id, function (content) {
-            var userDTO = JSON.parse(content);
-
-            //INDSÆT KODE HER
-
-        	console.log(userDTO.username);
+            $scope.userDTO = JSON.parse(content);
+            var year = $scope.userDTO.creationDate.substring(0, 4);
+            var day = $scope.userDTO.creationDate.substring(5, 7);
+            var month = $scope.userDTO.creationDate.substring(8, 10);
+            var date = new Date(year, day, month);
+            $scope.userDTO.creationDate = day + ' ' + date.toLocaleString('en-US', { month: "long" }) + ' ' + year;
 
         	$scope.$apply();
         });

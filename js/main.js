@@ -64,3 +64,13 @@ function post (url, data, callback) {
     xmlHttp.open("POST", url, true); // true for asynchronous 
     xmlHttp.send(data);
 };
+
+
+/*
+angular.module('forumApp').filter('debug', function() {
+  return function(input) {
+    if (input === '') return 'empty string';
+    return input ? input : ('' + input);
+  };
+});
+*/
