@@ -14,7 +14,7 @@ angular.module('forumApp').controller('categoryCtrl', function ($scope, $locatio
         getWithParams(getUrl('threads'), $routeParams.id, function (content) {
             var threadsDTO = JSON.parse(content);
 
-            //ÍNDSÆT KODE HER
+            //INDSÆT KODE HER
 
             console.log(threadsDTO);
 

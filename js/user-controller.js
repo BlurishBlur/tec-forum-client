@@ -14,7 +14,7 @@ angular.module('forumApp').controller('userCtrl', function ($scope, $location, $
         getWithParams(getUrl('users'), $routeParams.id, function (content) {
             var userDTO = JSON.parse(content);
 
-            //ÍNDSÆT KODE HER
+            //INDSÆT KODE HER
 
         	console.log(userDTO.username);
 

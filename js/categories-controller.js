@@ -7,17 +7,18 @@ angular.module('forumApp').controller('categoriesCtrl', function ($scope, $locat
 
     var route = 'categories';
 
-    $scope.getCategories = function () {
+    $scope.$on("$routeChangeSuccess", function(event, next, current) {
+        getCategories();
+    })
+
+    function getCategories () {
         get(getUrl(route), function (content) {
             $scope.categoriesDTO = JSON.parse(content);
 
             //console.log(categoriesDTO);
 
             $scope.$apply();
-            //getThreadsInCategory();
         });
     }
-
-    $j("#headerCategories").click($scope.getCategories());
 
 });
