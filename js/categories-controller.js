@@ -2,35 +2,32 @@
 /*jslint browser: true*/
 /*global $, jQuery, alert*/
 
-angular.module('forumApp').controller('categoriesCtrl', function ($scope, $location) {
+angular.module('forumApp').controller('categoriesCtrl', function ($scope, $location, $routeParams) {
     "use strict";
 
     var route = 'categories';
     var categoryId = 1;
 
     function getThreadsInCategory () {
-        post(getUrl('categories/threads'), categoryId, function (content) {
+        post(getUrl('categories/threads'), categoryId, function (content) { // skal laves om
             var threadsDTO = JSON.parse(content);
-
-            //ÍNDSÆT KODE HER
-
-        console.log(threadsDTO);
+            console.log(threadsDTO);
 
             $scope.$apply();
         });
-    };
+    }
 
 
     $scope.getCategories = function () {
-        get(getUrl(route), null, function (content) {
+        get(getUrl(route), '', function (content) {
             $scope.categoriesDTO = JSON.parse(content);
 
-        //console.log(categoriesDTO);
+            //console.log(categoriesDTO);
 
             $scope.$apply();
             getThreadsInCategory();
         });
-    };
+    }
 
     $j("#headerCategories").click($scope.getCategories());
 

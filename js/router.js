@@ -10,7 +10,6 @@ angular.module('forumApp').config(function($routeProvider, $locationProvider) {
                 var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn'));
                 if(loggedIn === true) {
                     $location.path('/dashboard');
-                    
                 }
             }
         }, 
@@ -23,7 +22,6 @@ angular.module('forumApp').config(function($routeProvider, $locationProvider) {
                 var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn'));
                 if(loggedIn === true) {
                     $location.path('/dashboard');
-                    
                 }
             }
         }, 
@@ -36,7 +34,6 @@ angular.module('forumApp').config(function($routeProvider, $locationProvider) {
                 var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn'));
                 if(!loggedIn) {
                     $location.path('/');
-                    
                 }
             }
         }, 
@@ -49,25 +46,47 @@ angular.module('forumApp').config(function($routeProvider, $locationProvider) {
                 var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn'));
                 if(!loggedIn) {
                     $location.path('/');
-                    
                 }
             }
         }, 
         templateUrl: 'partials/categories.html', 
         controller: 'categoriesCtrl'
     })
-    .when('/userdata', {
+    .when('/categories/:id', {
         resolve: {
             "check": function($location) {
                 var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn'));
                 if(!loggedIn) {
                     $location.path('/');
-                    
                 }
             }
         }, 
-        templateUrl: 'partials/userdata.html', 
-        controller: 'dashboardCtrl'
+        templateUrl: 'partials/category.html', 
+        controller: 'categoryCtrl'
+    })
+    /*.when('/user', {
+        resolve: {
+            "check": function($location) {
+                var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn'));
+                if(!loggedIn) {
+                    $location.path('/');
+                }
+            }
+        }, 
+        templateUrl: 'partials/user.html', 
+        controller: 'userCtrl'
+    })*/
+    .when('/user/:id', {
+        resolve: {
+            "check": function($location) {
+                var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn'));
+                if(!loggedIn) {
+                    $location.path('/');
+                }
+            }
+        }, 
+        templateUrl: 'partials/user.html', 
+        controller: 'userCtrl'
     })
     .when('/404', {
         templateUrl: 'partials/404.html'

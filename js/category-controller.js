@@ -2,25 +2,24 @@
 /*jslint browser: true*/
 /*global $, jQuery, alert*/
 
-angular.module('forumApp').controller('categoryCtrl', function ($scope, $location) {
+angular.module('forumApp').controller('categoryCtrl', function ($scope, $location, $routeParams) {
     "use strict";
 
-    var route = 'categories/threads';
-    var categoryId = 1;
-
+    $scope.$on("$routeChangeSuccess", function(event, next, current) {
+        console.log('paramsid : ' + $routeParams.id);
+        getThreadsInCategory();
+    })
 
     function getThreadsInCategory () {
-        post(getUrl('categories/threads'), categoryId, function (content) {
+        get(getUrl('category'), $routeParams.id, function (content) {
             var threadsDTO = JSON.parse(content);
 
             //ÍNDSÆT KODE HER
 
-        console.log(threadsDTO);
+            console.log(threadsDTO);
 
             $scope.$apply();
         });
     };
-    
-    $j("#").click($scope.getThreadsInCategory()); //sæt IDet til activatoren
 
 });

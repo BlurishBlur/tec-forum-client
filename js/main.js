@@ -28,8 +28,8 @@ function get (url, data, callback) {
             callback(xmlHttp.responseText);
         }
     };
-    xmlHttp.open("GET", url, true); // true for asynchronous 
-    xmlHttp.send(data);
+    xmlHttp.open("GET", url+'?id='+data, true); // true for asynchronous 
+    xmlHttp.send(null);
 }
 
 function put (url, data, callback) {
