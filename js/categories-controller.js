@@ -23,9 +23,9 @@ angular.module('forumApp').controller('categoriesCtrl', function ($scope, $locat
 
     $scope.getCategories = function () {
         get(getUrl(route), null, function (content) {
-            var categoriesDTO = JSON.parse(content);
+            $scope.categoriesDTO = JSON.parse(content);
 
-            //ÍNDSÆT KODE HER
+            //INDSÆT KODE HER
             /*
             for (var i = 0; i < result.length; i++) {
                 categoriesDTO[i].id 
@@ -34,7 +34,7 @@ angular.module('forumApp').controller('categoriesCtrl', function ($scope, $locat
             }
             */
 
-        console.log(categoriesDTO);
+        //console.log(categoriesDTO);
 
             $scope.$apply();
             getThreadsInCategory();

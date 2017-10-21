@@ -12,87 +12,27 @@
             <div class="dashboard-latest">Latest activity</div>
           </div>
           <div class="dashboard-content">
-            <div class="dashboard-content-post">
+          <div class="dashboard-content-post" ng-repeat="post in categoriesDTO">
               <div class="dashboard-title">
-                <span class="dashboard-title-header">
-                  <a href="#">Programming</a>
-                </span>
-                <span class="dashboard-title-text">Description</span>
-              </div>
-              <div class="dashboard-comments">
-                <span class="dashboard-comments-text">24</span>
-              </div>
-              <div class="dashboard-posts">
-                <span class="dashboard-posts-text">126</span>
-              </div>
-              <div class="dashboard-latest">
-                  <span class="dashboard-latest-text">
-                      <span class="dashboard-latest-author">By <a href="#">Niels</a> in <a href="#">Pornhub and other nice sites!</a></span>
-                      <br />
-                      <span class="dashboard-latest-timestamp">At 15:14</span>
-                  </span>
-              </div>
-            </div>
-      
-            <div class="dashboard-content-post">
-                <div class="dashboard-title">
                   <span class="dashboard-title-header">
-                    <a href="#">Computer</a>
+                    <a href="#">{{post.title}}</a>
                   </span>
-                  <span class="dashboard-title-text">Description</span>
+                  <span class="dashboard-title-text">{{post.description}}</span>
                 </div>
                 <div class="dashboard-comments">
                   <span class="dashboard-comments-text">24</span>
                 </div>
                 <div class="dashboard-posts">
-                  <span class="dashboard-posts-text">222</span>
+                  <span class="dashboard-posts-text">126</span>
                 </div>
                 <div class="dashboard-latest">
-                    <span class="dashboard-latest-author">By <a href="#">Niels</a> in <a href="#">Pornhub and other nice sites!</a></span>
-                    <br />
-                    <span class="dashboard-latest-timestamp">At 15:14</span>
-                </div>
-              </div>
-      
-              <div class="dashboard-content-post">
-                  <div class="dashboard-title">
-                    <span class="dashboard-title-header">
-                      <a href="#">Software</a>
-                    </span>
-                    <span class="dashboard-title-text">Description</span>
-                  </div>
-                  <div class="dashboard-comments">
-                    <span class="dashboard-comments-text">24</span>
-                  </div>
-                  <div class="dashboard-posts">
-                    <span class="dashboard-posts-text">92</span>
-                  </div>
-                  <div class="dashboard-latest">
-                      <span class="dashboard-latest-author">By <a href="#">Niels</a> in <a href="#">Pornhub and other nice sites!</a></span>
-                      <br />
-                      <span class="dashboard-latest-timestamp">At 15:14</span>
-                  </div>
-                </div>
-      
-                <div class="dashboard-content-post">
-                    <div class="dashboard-title">
-                      <span class="dashboard-title-header">
-                        <a href="#">Porn</a>
-                      </span>
-                      <span class="dashboard-title-text">Description</span>
-                    </div>
-                    <div class="dashboard-comments">
-                      <span class="dashboard-comments-text">24</span>
-                    </div>
-                    <div class="dashboard-posts">
-                      <span class="dashboard-posts-text">23456</span>
-                    </div>
-                    <div class="dashboard-latest">
+                    <span class="dashboard-latest-text">
                         <span class="dashboard-latest-author">By <a href="#">Niels</a> in <a href="#">Pornhub and other nice sites!</a></span>
                         <br />
                         <span class="dashboard-latest-timestamp">At 15:14</span>
-                    </div>
+                    </span>
                 </div>
+          </div>  
           </div>
         </div>
   </div>
