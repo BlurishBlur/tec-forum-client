@@ -4,6 +4,6 @@
     "routes": {
         "users": "/users", 
         "categories": "/categories", 
-        "categories/threads": "/categories/threads"
+        "threads": "/threads"
     }
 }

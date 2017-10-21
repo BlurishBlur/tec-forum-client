@@ -61,7 +61,7 @@ angular.module('forumApp').config(function($routeProvider, $locationProvider) {
                 }
             }
         }, 
-        templateUrl: 'partials/category.html', 
+        templateUrl: 'partials/categories.html',  // skal ændres til category.html
         controller: 'categoryCtrl'
     })
     /*.when('/user', {
@@ -76,7 +76,7 @@ angular.module('forumApp').config(function($routeProvider, $locationProvider) {
         templateUrl: 'partials/user.html', 
         controller: 'userCtrl'
     })*/
-    .when('/user/:id', {
+    .when('/users/:id', {
         resolve: {
             "check": function($location) {
                 var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn'));

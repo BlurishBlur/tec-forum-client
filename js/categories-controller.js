@@ -6,16 +6,6 @@ angular.module('forumApp').controller('categoriesCtrl', function ($scope, $locat
     "use strict";
 
     var route = 'categories';
-    var categoryId = 1;
-
-    function getThreadsInCategory () {
-        post(getUrl('categories/threads'), categoryId, function (content) { // skal laves om
-            var threadsDTO = JSON.parse(content);
-            console.log(threadsDTO);
-
-            $scope.$apply();
-        });
-    }
 
 
     $scope.getCategories = function () {
@@ -25,7 +15,7 @@ angular.module('forumApp').controller('categoriesCtrl', function ($scope, $locat
             //console.log(categoriesDTO);
 
             $scope.$apply();
-            getThreadsInCategory();
+            //getThreadsInCategory();
         });
     }
 
