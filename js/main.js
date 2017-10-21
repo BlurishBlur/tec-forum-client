@@ -21,7 +21,18 @@ function colorBorderGrey(inputElement) {
 	inputElement.css("border", "3px solid #9EA9AB");
 }
 
-function get (url, data, callback) {
+function get(url, callback) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function () {
+        if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
+            callback(xmlHttp.responseText);
+        }
+    };
+    xmlHttp.open("GET", url, true); // true for asynchronous 
+    xmlHttp.send(null);
+}
+
+function getWithParams(url, data, callback) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function () {
         if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {

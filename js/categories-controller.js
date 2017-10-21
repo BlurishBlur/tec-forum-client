@@ -7,9 +7,8 @@ angular.module('forumApp').controller('categoriesCtrl', function ($scope, $locat
 
     var route = 'categories';
 
-
     $scope.getCategories = function () {
-        get(getUrl(route), '', function (content) {
+        get(getUrl(route), function (content) {
             $scope.categoriesDTO = JSON.parse(content);
 
             //console.log(categoriesDTO);
