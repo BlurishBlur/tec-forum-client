@@ -166,38 +166,67 @@ li span:hover:not(.active) {
 
 .title {
     font-family: tahoma;
-    color: whitesmoke;
-    font-size: 60;
+    color: #455A64;
+    font-size: 50;
     margin: auto;
-    font-weight: 600;
-    margin-top: 15%;
+    font-weight: 700;
+    margin-top: 14%;
     margin-left: 20%;
+    animation-name: toneIn;
+    animation-duration: 1s;
+}
+
+@keyframes toneIn {
+    from {opacity:0}
+    to {opacity:1}
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }
 
 .message {
     font-family: tahoma;
-    color: whitesmoke;
+    color: #1F1F1F;
     font-size: 20;
     margin-left: 3%;
 }
 
 .input {
-    margin-top: 2%;
+    margin-top: 3%;
     margin-left: 20%;
 }
 
 .inputText {
-    width: 800px;
-    height: 50px;
-    font-size: 28;
+    width: 600px;
+    height: 40px;
+    font-size: 20;
     padding-left: 20px;
     border: 3px solid #9EA9AB;
     transition: 0.5s;
+    border-radius: 5px;
+    outline: none;
+    transform: translate3d(0, 0, 0);
 }
 
 .inputText:focus {
     border: 3px solid #282B2B !important;
-    transition: 0.5s;
+    border-radius: 5px;
+    transition: 0.3s;
 }
 
 /* BUTTONS IN LOGIN */
@@ -213,6 +242,7 @@ li span:hover:not(.active) {
     background-color: #455A64;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .button span {
