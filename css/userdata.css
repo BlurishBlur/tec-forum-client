@@ -1,0 +1,70 @@
+.userdata-content {
+    margin: 30px auto 0 auto;
+    width: 1000px;
+    border: 0px solid black;
+    font-family: 'Open-Sans', sans-serif;
+    font-weight: lighter;
+    color: #4c585f;
+}
+
+.userdata-content a {
+    text-decoration: none;
+    color: #4c585f;
+}
+
+.userdata-content a:hover {
+    cursor: pointer;
+    color: #4e8cb3;
+}
+
+#userdata-username {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: lighter;
+    font-size: 4rem;
+}
+
+#userdata-creationdate {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.8rem;
+}
+
+#userdata-user-activity {
+    margin-top: 30px;
+}
+
+.userdata-activity {
+    width: 470px;
+    border: 0px solid black;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.userdata-posts {
+    margin-right: 50px;
+}
+
+.userdata-posts-header,
+.userdata-comments-header {
+    border-bottom: 1px solid rgb(153, 153, 153);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.userdata-posts-entry,
+.userdata-comments-entry {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.userdata-posts-entry-title {
+    font-size: 1.9rem;
+}
+
+.userdata-posts-entry-threadinfo {
+    font-size: 0.8rem;
+}
+
+.userdata-comments-entry-info {
+    font-size: 0.8rem;
+}

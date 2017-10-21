@@ -1,4 +1,4 @@
-.content {
+.dashboard-content {
     margin: 30px auto 0 auto;
     width: 1200px;
     height: 100px;
@@ -49,7 +49,6 @@
 .dashboard-content a:hover {
     cursor: pointer;
     color: #4e8cb3;
-    
 }
 
 .dashboard-title {
