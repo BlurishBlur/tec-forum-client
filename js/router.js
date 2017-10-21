@@ -54,7 +54,7 @@ angular.module('forumApp').config(function($routeProvider, $locationProvider) {
             }
         }, 
         templateUrl: 'partials/categories.html', 
-        controller: 'dashboardCtrl'
+        controller: 'categoriesCtrl'
     })
     .when('/404', {
         templateUrl: 'partials/404.html'

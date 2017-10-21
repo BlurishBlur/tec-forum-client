@@ -1,10 +1,11 @@
 /*global angular*/
 /*jslint browser: true*/
 /*global $, jQuery, alert*/
-route = 'users';
 
 angular.module('forumApp').controller('loginCtrl', function ($scope, $location) {
     "use strict";
+
+    var route = 'users';
 
     $j('#password').keypress(function(e) { //Enter keypress
         if(e.keyCode == 13) {
@@ -13,6 +14,7 @@ angular.module('forumApp').controller('loginCtrl', function ($scope, $location) 
     });
 
     $scope.postUser = function () {
+        console.log(route);
         var userObj = JSON.stringify( {username: $scope.username, password: $scope.password} );
         post(getUrl(route), userObj, function (content) {
             var logInDTO = JSON.parse(content);

@@ -3,7 +3,6 @@
 /*global $, jQuery, alert*/
 var $j = jQuery.noConflict();
 var app = angular.module('forumApp', ['ngRoute']);
-var route = '';
 var config;
 $j.getJSON('./cfg/config.json', function(response) {
     config = response;
@@ -20,6 +19,17 @@ function colorBorderRed(inputElement) {
 
 function colorBorderGrey(inputElement) {
 	inputElement.css("border", "3px solid #9EA9AB");
+}
+
+function get (url, data, callback) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function () {
+        if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
+            callback(xmlHttp.responseText);
+        }
+    };
+    xmlHttp.open("GET", url, true); // true for asynchronous 
+    xmlHttp.send(data);
 }
 
 function put (url, data, callback) {

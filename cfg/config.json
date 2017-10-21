@@ -2,6 +2,7 @@
     "host": "localhost", 
     "port": 8761, 
     "routes": {
-        "users": "/users"
+        "users": "/users", 
+        "categories": "/categories"
     }
 }

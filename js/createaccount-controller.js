@@ -1,10 +1,11 @@
 /*global angular*/
 /*jslint browser: true*/
 /*global $, jQuery, alert*/
-route = 'users';
 
 angular.module('forumApp').controller('createAccountCtrl', function ($scope, $location) {
     "use strict";
+
+    var route = 'users';
 
     $j('#repeat').keypress(function(e){
         if(e.keyCode == 13) {
