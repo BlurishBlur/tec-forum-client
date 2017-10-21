@@ -28,7 +28,9 @@ angular.module('forumApp').controller('loginCtrl', function ($scope, $location) 
                 $scope.loginReturnMessage = logInDTO.message;
                 colorBorderRed($j("#username"));
                 colorBorderRed($j("#password"));
-                $j(".inputText").addClass("animation");
+                $j(".inputText").addClass("animation").one("animationend", function() {
+                    $j(".inputText").removeClass("animation");
+                });
             }
             $scope.$apply();
         });
