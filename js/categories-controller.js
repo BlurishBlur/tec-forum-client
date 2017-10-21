@@ -6,6 +6,19 @@ angular.module('forumApp').controller('categoriesCtrl', function ($scope, $locat
     "use strict";
 
     var route = 'categories';
+    var categoryId = 1;
+
+    function getThreadsInCategory () {
+        post(getUrl('categories/threads'), categoryId, function (content) {
+            var threadsDTO = JSON.parse(content);
+
+            //ÍNDSÆT KODE HER
+
+        console.log(threadsDTO);
+
+            $scope.$apply();
+        });
+    };
 
 
     $scope.getCategories = function () {
@@ -24,9 +37,10 @@ angular.module('forumApp').controller('categoriesCtrl', function ($scope, $locat
         console.log(categoriesDTO);
 
             $scope.$apply();
+            getThreadsInCategory();
         });
     };
-    
+
     $j("#headerCategories").click($scope.getCategories());
 
 });

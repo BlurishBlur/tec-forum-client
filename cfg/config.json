@@ -3,6 +3,7 @@
     "port": 8761, 
     "routes": {
         "users": "/users", 
-        "categories": "/categories"
+        "categories": "/categories", 
+        "categories/threads": "/categories/threads"
     }
 }
