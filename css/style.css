@@ -226,7 +226,7 @@ li span:hover:not(.active) {
 .inputText:focus {
     border: 3px solid #282B2B !important;
     border-radius: 5px;
-    transition: 0.5s;
+    transition: 0.3s;
 }
 
 /* BUTTONS IN LOGIN */
@@ -242,6 +242,7 @@ li span:hover:not(.active) {
     background-color: #455A64;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .button span {
