@@ -152,16 +152,6 @@ li span:hover:not(.active) {
     font-size: 18;
 }
 
-.goOutAnimation {
-    animation-name: animateOut;
-    animation-duration: 0.4s;
-}
-
-@keyframes animateOut {
-    from {top:0; opacity:1}
-    to {top:-300px; opacity:0}
-}
-
 /* ----------------------- POP UP BOX END ---------------------------- */
 
 .title {
@@ -179,24 +169,6 @@ li span:hover:not(.active) {
 @keyframes toneIn {
     from {opacity:0}
     to {opacity:1}
-}
-
-@keyframes shake {
-  10%, 90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-  
-  20%, 80% {
-    transform: translate3d(2px, 0, 0);
-  }
-
-  30%, 50%, 70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-
-  40%, 60% {
-    transform: translate3d(4px, 0, 0);
-  }
 }
 
 .message {
@@ -223,6 +195,29 @@ li span:hover:not(.active) {
     background-size: 25px 25px;
     background-position: 7px 4px;
     background-repeat: no-repeat;
+    transform: translate3d(0,0,0);
+}
+
+.animation {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }
 
 #username {
