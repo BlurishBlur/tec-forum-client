@@ -25,15 +25,6 @@ angular.module('forumApp').controller('categoriesCtrl', function ($scope, $locat
         get(getUrl(route), null, function (content) {
             $scope.categoriesDTO = JSON.parse(content);
 
-            //INDSÆT KODE HER
-            /*
-            for (var i = 0; i < result.length; i++) {
-                categoriesDTO[i].id 
-                categoriesDTO[i].title 
-                categoriesDTO[i].description 
-            }
-            */
-
         //console.log(categoriesDTO);
 
             $scope.$apply();

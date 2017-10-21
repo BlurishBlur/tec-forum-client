@@ -59,6 +59,7 @@
 .dashboard-comments {
     width: 100px;
     margin-right: 30px;
+    text-align: center;
 }
 
 .dashboard-comments-text {
@@ -68,6 +69,7 @@
 .dashboard-posts {
     width: 100px;
     margin-right: 30px;
+    text-align: center;
 }
 
 .dashboard-posts-text {
