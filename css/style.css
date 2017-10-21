@@ -53,9 +53,10 @@ li a {
 .dropdown-content {
     display: none;
     position: fixed;
-    background-color: #BCDAF3;
+    background-color: #D5DDDE;
     min-width: 170px;
     z-index: 1;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .dropdown-content span {
@@ -109,7 +110,7 @@ li span:hover:not(.active) {
 }
 
 .popUpBox-content {
-    background-color: #BCDAF3;
+    background-color: #F1F1F1;
     position: relative;
     font-family: tahoma;
     margin: 15% auto;
