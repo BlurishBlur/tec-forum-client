@@ -3,14 +3,26 @@
 /*global $, jQuery, alert*/
 
 angular.module('forumApp').config(function($routeProvider, $locationProvider) {
+    
+    function isLoggedIn($location, newLocation) {
+        var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn'));
+        if(loggedIn === true) {
+            $location.path(newLocation);
+        }
+    }
+
+    function isNotLoggedIn($location, newLocation) {
+        var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn'));
+        if(loggedIn === false) {
+            $location.path(newLocation);
+        }
+    }
+
     $routeProvider
     .when('/', {
         resolve: {
             "check": function($location) {
-                var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn'));
-                if(loggedIn === true) {
-                    $location.path('/dashboard');
-                }
+                isLoggedIn($location, '/dashboard');
             }
         }, 
         templateUrl: 'partials/login.html', 
@@ -19,10 +31,7 @@ angular.module('forumApp').config(function($routeProvider, $locationProvider) {
     .when('/create', {
         resolve: {
             "check": function($location) {
-                var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn'));
-                if(loggedIn === true) {
-                    $location.path('/dashboard');
-                }
+                isLoggedIn($location, '/dashboard');
             }
         }, 
         templateUrl: 'partials/createAccount.html', 
@@ -31,10 +40,7 @@ angular.module('forumApp').config(function($routeProvider, $locationProvider) {
     .when('/dashboard', {
         resolve: {
             "check": function($location) {
-                var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn'));
-                if(!loggedIn) {
-                    $location.path('/');
-                }
+                isNotLoggedIn($location, '/');
             }
         }, 
         templateUrl: 'partials/dashboard.html', 
@@ -43,10 +49,7 @@ angular.module('forumApp').config(function($routeProvider, $locationProvider) {
     .when('/categories', {
         resolve: {
             "check": function($location) {
-                var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn'));
-                if(!loggedIn) {
-                    $location.path('/');
-                }
+                isNotLoggedIn($location, '/');
             }
         }, 
         templateUrl: 'partials/categories.html', 
@@ -55,10 +58,7 @@ angular.module('forumApp').config(function($routeProvider, $locationProvider) {
     .when('/categories/:id', {
         resolve: {
             "check": function($location) {
-                var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn'));
-                if(!loggedIn) {
-                    $location.path('/');
-                }
+                isNotLoggedIn($location, '/');
             }
         }, 
         templateUrl: 'partials/categories.html',  // skal ændres til category.html
@@ -79,10 +79,7 @@ angular.module('forumApp').config(function($routeProvider, $locationProvider) {
     .when('/users/:id', {
         resolve: {
             "check": function($location) {
-                var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn'));
-                if(!loggedIn) {
-                    $location.path('/');
-                }
+                isNotLoggedIn($location, '/');
             }
         }, 
         templateUrl: 'partials/user.html', 
