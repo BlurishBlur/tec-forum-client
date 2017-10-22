@@ -2,18 +2,19 @@
 /*jslint browser: true*/
 /*global $, jQuery, alert*/
 
+
 angular.module('forumApp').controller('loginCtrl', function ($scope, $location) {
     "use strict";
 
     var route = '/users';
 
-    $j('#password').keypress(function(e) { //Enter keypress
-        if(e.keyCode == 13) {
-            $j('#loginButton').click();
+    $scope.checkKey = function($event) {
+        if ($event.keyCode == 13) { // Enter keypress
+            $scope.logIn();
         }
-    });
+    }
 
-    $scope.postUser = function () {
+    function postUser () {
         console.log(route);
         var userObj = JSON.stringify( {username: $scope.username, password: $scope.password} );
         post(getUrl(route), userObj, function (content) {
@@ -37,7 +38,7 @@ angular.module('forumApp').controller('loginCtrl', function ($scope, $location) 
     };
     
     $scope.logIn = function() {
-        $scope.postUser();
+        postUser();
     }
 
     $scope.goToCreate = function() {

@@ -15,7 +15,7 @@
         <input id="password" type="password" class="inputText" ng-keyup="checkPasswordMatch()" ng-model="password" placeholder="Password..."  />
         <span class="message"> {{passwordReturnMessage}} </span>
         <br><br><br>
-        <input id="repeat" type="password" class="inputText" ng-keyup="checkPasswordMatch()" ng-model="repeat" placeholder="Repeat Password..."  />
+        <input id="repeat" type="password" class="inputText" ng-keydown="checkKey($event)" ng-model="repeat" placeholder="Repeat password..."  />
         <span class="message"> {{repeatPasswordReturnMessage}} </span>
         <br><br><br>
         <button id="create" class="button" ng-click="createUser()"><span>CREATE</span></button>

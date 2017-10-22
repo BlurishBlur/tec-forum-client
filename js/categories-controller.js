@@ -8,6 +8,8 @@ angular.module('forumApp').controller('categoriesCtrl', function ($scope, $locat
     var route = '/categories';
 
     $scope.$on("$routeChangeSuccess", function(event, next, current) {
+        $j(".active").removeClass("active");
+        $j("#headerCategories").addClass("active"); 
         getCategories();
     })
 

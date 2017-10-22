@@ -7,13 +7,13 @@ angular.module('forumApp').controller('createAccountCtrl', function ($scope, $lo
 
     var route = '/users';
 
-    $j('#repeat').keypress(function(e){
-        if(e.keyCode == 13) {
-            $j('#create').click();
+    $scope.checkKey = function($event) {
+        if ($event.keyCode == 13) { // Enter keypress
+            $scope.createUser();
         }
-    });
+    }
 
-    $scope.putUser = function () {
+    function putUser () {
         var userObj = JSON.stringify( {username: $scope.username, password: $scope.password} );
 
         put(getUrl(route), userObj, function (content) {
@@ -64,7 +64,7 @@ angular.module('forumApp').controller('createAccountCtrl', function ($scope, $lo
 
         // Final error check
         if (errors === 0) {
-            $scope.putUser();
+            putUser();
         }
         else {
             $scope.returnMessage = "There " + (errors > 1 ? " were " + errors + " errors" : " was 1 error") + ".";

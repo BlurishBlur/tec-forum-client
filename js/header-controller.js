@@ -14,28 +14,13 @@ angular.module('forumApp').controller('headerCtrl', function ($scope, $location)
         }
         return isLoggedIn;
     }
-
-    if($location.path() === '/dashboard') {
-        $j(function(){
-            $j("#headerHome").addClass("active"); 
-         });
-        
-    } else if($location.path() === '/categories') {
-        $j(function(){
-            $j("#headerCategories").addClass("active"); 
-         });
-    }
     
     $scope.goToHome = function() {
         $location.path('/dashboard');
-        $j(".active").removeClass("active");
-        $j("#headerHome").addClass("active");
     }
 
     $scope.goToCategories = function() {
         $location.path('/categories');
-        $j(".active").removeClass("active");
-        $j("#headerCategories").addClass("active");
     }
 
     $scope.logOut = function() {
