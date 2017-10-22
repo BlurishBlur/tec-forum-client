@@ -26,7 +26,7 @@ angular.module('forumApp').controller('userCtrl', function ($scope, $location, $
             for(var i = 0; i < $scope.threadsDTO.length; i++) {
                 var difference = (new Date() - new Date($scope.threadsDTO[i].creationDate)) / (1000); // miliseconds --> seconds
                 var factor = 1;
-                var notation = 'seconds';
+                var notation = 'second';
 
                 for(var unit in units) {
                     if(difference > (units[unit] - 1)) {
