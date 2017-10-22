@@ -5,7 +5,7 @@
 angular.module('forumApp').controller('categoriesCtrl', function ($scope, $location, $routeParams) {
     "use strict";
 
-    var route = 'categories';
+    var route = '/categories';
 
     $scope.$on("$routeChangeSuccess", function(event, next, current) {
         getCategories();

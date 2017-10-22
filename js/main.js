@@ -9,8 +9,8 @@ $j.getJSON('./cfg/config.json', function(response) {
 });
 
 function getUrl(route) {
-    console.log("http://%s:%s%s", config.host, config.port, config.routes[route]);
-    return "http://" + config.host + ":" + config.port + config.routes[route];
+    console.log("http://%s:%s%s", config.host, config.port, route);
+    return "http://" + config.host + ":" + config.port + route;
 }
 
 function colorBorderRed(inputElement) {

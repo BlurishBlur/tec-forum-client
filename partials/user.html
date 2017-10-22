@@ -12,25 +12,9 @@
 
             <div class="userdata-posts userdata-activity">
                 <div class="userdata-posts-header">Posts by {{userDTO.username}}</div>
-                <div class="userdata-posts-entry">
-                    <span class="userdata-posts-entry-title"><a href="#">How to program Java</a></span><br />
-                    <span class="userdata-posts-entry-threadinfo">10 days ago &middot; 43 comments &middot; last activity 4 min ago</span>
-                </div>
-                <div class="userdata-posts-entry">
-                    <span class="userdata-posts-entry-title"><a href="#">How to program C#</a></span><br />
-                    <span class="userdata-posts-entry-threadinfo">10 days ago &middot; 43 comments &middot; last activity 4 min ago</span>
-                </div>
-                <div class="userdata-posts-entry">
-                    <span class="userdata-posts-entry-title"><a href="#">How to program Javascript</a></span><br />
-                    <span class="userdata-posts-entry-threadinfo">10 days ago &middot; 43 comments &middot; last activity 4 min ago</span>
-                </div>
-                <div class="userdata-posts-entry">
-                    <span class="userdata-posts-entry-title"><a href="#">How to program PHP</a></span><br />
-                    <span class="userdata-posts-entry-threadinfo">10 days ago &middot; 43 comments &middot; last activity 4 min ago</span>
-                </div>
-                <div class="userdata-posts-entry">
-                    <span class="userdata-posts-entry-title"><a href="#">How to program HASKALL</a></span><br />
-                    <span class="userdata-posts-entry-threadinfo">10 days ago &middot; 43 comments &middot; last activity 4 min ago</span>
+                <div class="userdata-posts-entry" ng-repeat="thread in threadsDTO">
+                    <span class="userdata-posts-entry-title"><a href="threads/{{thread.id}}">{{thread.title}}</a></span><br />
+                    <span class="userdata-posts-entry-threadinfo">{{thread.difference}} {{thread.notation}} ago &middot; 43 comments &middot; last activity 4 min ago</span>
                 </div>
             </div>
 

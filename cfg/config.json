@@ -1,9 +1,4 @@
 {
     "host": "localhost", 
-    "port": 8761, 
-    "routes": {
-        "users": "/users", 
-        "categories": "/categories", 
-        "threads": "/threads"
-    }
+    "port": 8761
 }

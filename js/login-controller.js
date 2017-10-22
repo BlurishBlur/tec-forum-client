@@ -5,7 +5,7 @@
 angular.module('forumApp').controller('loginCtrl', function ($scope, $location) {
     "use strict";
 
-    var route = 'users';
+    var route = '/users';
 
     $j('#password').keypress(function(e) { //Enter keypress
         if(e.keyCode == 13) {

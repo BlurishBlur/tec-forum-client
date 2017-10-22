@@ -11,7 +11,7 @@ angular.module('forumApp').controller('categoryCtrl', function ($scope, $locatio
     })
 
     function getThreadsInCategory () {
-        getWithParams(getUrl('threads'), $routeParams.id, function (content) {
+        getWithParams(getUrl('/categories/threads'), $routeParams.id, function (content) {
             var threadsDTO = JSON.parse(content);
 
             //INDSÆT KODE HER

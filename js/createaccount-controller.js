@@ -5,7 +5,7 @@
 angular.module('forumApp').controller('createAccountCtrl', function ($scope, $location) {
     "use strict";
 
-    var route = 'users';
+    var route = '/users';
 
     $j('#repeat').keypress(function(e){
         if(e.keyCode == 13) {
