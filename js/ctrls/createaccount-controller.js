@@ -1,13 +1,45 @@
 /*global angular*/
 /*jslint browser: true*/
-/*global $, jQuery, alert*/
+/*global $j, jQuery, alert*/
 
 angular.module('forumApp').controller('createAccountCtrl', function ($scope, $location) {
     "use strict";
 
     var route = '/users';
+    var typingTimeout;
 
-    $scope.checkKey = function($event) {
+    $scope.$on("$routeChangeSuccess", function(event, next, current) {
+        $j('.input').on('keyup', '#password', function() {
+            checkPassword();
+        });
+        $j('.input').on('keyup', '#repeat', function() {
+            checkPassword();
+        });
+    })
+
+    function checkPassword() {
+        clearTimeout(typingTimeout);
+        typingTimeout = setTimeout(function() {
+            reset();
+            if ($scope.password != undefined && $scope.password.length < 6 && $scope.password != '') {
+                $scope.passwordReturnMessage = "Please check that password is more than 6 characters.";
+                colorBorderRed($j("#password"));
+            }
+            if ($scope.username != undefined && $scope.password != undefined && $scope.username === $scope.password) {
+                $scope.passwordReturnMessage = "Username and password cannot be the same.";
+                colorBorderRed($j("#password"));
+            }
+            if ($scope.password != undefined && $scope.repeat != '' && $scope.repeat != undefined && $scope.password !== $scope.repeat) {
+                $scope.repeatPasswordReturnMessage = "Password does not match.";
+                colorBorderRed($j("#password"));
+                colorBorderRed($j("#repeat"));
+            }
+            $scope.$apply();
+        }, 500);
+    }
+
+
+    $scope.checkForEnter = function($event) {
         if ($event.keyCode == 13) { // Enter keypress
             $scope.createUser();
         }

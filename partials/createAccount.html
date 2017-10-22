@@ -12,10 +12,10 @@
         <input id="username" type="text" class="inputText" ng-model="username" placeholder="Username..." />
         <span class="message"> {{usernameReturnMessage}} </span>
         <br><br><br>
-        <input id="password" type="password" class="inputText" ng-keyup="checkPasswordMatch()" ng-model="password" placeholder="Password..."  />
+        <input id="password" type="password" class="inputText" ng-model="password" placeholder="Password..."  />
         <span class="message"> {{passwordReturnMessage}} </span>
         <br><br><br>
-        <input id="repeat" type="password" class="inputText" ng-keydown="checkKey($event)" ng-model="repeat" placeholder="Repeat password..."  />
+        <input id="repeat" type="password" class="inputText" ng-keyup="checkForEnter($event)" ng-model="repeat" placeholder="Repeat password..."  />
         <span class="message"> {{repeatPasswordReturnMessage}} </span>
         <br><br><br>
         <button id="create" class="button" ng-click="createUser()"><span>CREATE</span></button>
