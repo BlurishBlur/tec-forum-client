@@ -46,6 +46,10 @@ angular.module('forumApp').controller('userCtrl', function ($scope, $location, $
         getWithParams(getUrl('/users'), $routeParams.id, function (content) {
             $scope.userDTO = JSON.parse(content);
 
+            if(Object.keys($scope.userDTO).length === 0) {
+                $location.path('404');
+            }
+
             var date = new Date($scope.userDTO.creationDate);
             $scope.userDTO.creationDate = date.getDate() + ' ' + date.toLocaleString('en-US', { month: "long" }) + ' ' + date.getFullYear();
 
