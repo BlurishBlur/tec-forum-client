@@ -46,7 +46,7 @@ angular.module('forumApp').controller('userCtrl', function ($scope, $location, $
         getWithParams(getUrl('/users'), $routeParams.id, function (content) {
             $scope.userDTO = JSON.parse(content);
 
-            if(Object.keys($scope.userDTO).length === 0) {
+            if($j.isEmptyObject($scope.userDTO)) {
                 $location.path('404');
             }
 
