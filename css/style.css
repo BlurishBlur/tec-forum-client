@@ -36,6 +36,7 @@ li span {
     color: #D5DDDE;
     text-decoration: none;
     cursor: pointer;
+    border-bottom: 1px solid #0B314F;
 }
 
 li a {
