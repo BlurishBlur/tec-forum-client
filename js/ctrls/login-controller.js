@@ -15,7 +15,6 @@ angular.module('forumApp').controller('loginCtrl', function ($scope, $location) 
     }
 
     function postUser () {
-        console.log(route);
         var userObj = JSON.stringify( {username: $scope.username, password: $scope.password} );
         post(getUrl(route), userObj, function (content) {
             var logInDTO = JSON.parse(content);

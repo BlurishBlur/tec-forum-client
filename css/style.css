@@ -225,11 +225,11 @@ li span:hover:not(.active) {
     background-image: url("../imgs/person.png");
 }
 
-#password {
+#password, #passwordChange {
     background-image: url("../imgs/key.png");
 }
 
-#repeat {
+#repeat, #repeatChange {
     background-image: url("../imgs/repeat.png");
 }
 
