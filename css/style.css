@@ -223,27 +223,33 @@ li span:hover:not(.active) {
 }
 
 .searchInputText {
-    margin-top: 13.5px;
+    margin-top: 15px;
     margin-left: 5%;
-    width: 150px;
+    width: 130px;
     height: 30px;
     background: linear-gradient(to bottom right, #0B314F, #0A2C47);
     font-family: tahoma;
-    font-size: 18;
+    font-size: 16;
     color: #D5DDDE;
     text-decoration: none;
-    border-bottom: 1px solid whitesmoke;
+    border-bottom: 1px solid #C1C8C9;
     border-top: none;
     border-left: none;
     border-right: none;
-    transition: 0.5s;
     outline: none;
     padding-left: 45px;
     background-size: 25px 25px;
     background-position: 7px 4px;
     background-repeat: no-repeat;
+    transition: width 0.7s ease-in-out;
+}
+.searchInputText::-webkit-input-placeholder {
+  color: #D5DDDE;
 }
 
+.searchInputText:focus {
+    width: 500px;
+}
 
 #username {
     background-image: url("../imgs/person.png");
