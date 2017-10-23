@@ -225,7 +225,7 @@ li span:hover:not(.active) {
 .searchInputText {
     margin-top: 15px;
     margin-left: 5%;
-    width: 130px;
+    width: 120px;
     height: 30px;
     background: linear-gradient(to bottom right, #0B314F, #0A2C47);
     font-family: tahoma;
@@ -237,11 +237,12 @@ li span:hover:not(.active) {
     border-left: none;
     border-right: none;
     outline: none;
-    padding-left: 45px;
+    padding-left: 35px;
     background-size: 25px 25px;
-    background-position: 7px 4px;
+    background-position: 0px 4px;
     background-repeat: no-repeat;
-    transition: width 0.7s ease-in-out;
+    transition: width 0.7s;
+    transition-timing-function: cubic-bezier(.98, .02, .47, .99);
 }
 .searchInputText::-webkit-input-placeholder {
   color: #D5DDDE;
