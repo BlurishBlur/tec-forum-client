@@ -242,7 +242,7 @@ li span:hover:not(.active) {
     background-position: 0px 4px;
     background-repeat: no-repeat;
     transition: width 0.7s;
-    transition-timing-function: cubic-bezier(.98, .02, .47, .99);
+    transition-timing-function: cubic-bezier(.98, .02, .50, 1.20);
 }
 .searchInputText::-webkit-input-placeholder {
   color: #D5DDDE;
