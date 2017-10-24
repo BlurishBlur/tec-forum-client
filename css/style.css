@@ -223,6 +223,7 @@ li span:hover:not(.active) {
 }
 
 .searchInputText {
+	opacity: 0.70;
     margin-top: 15px;
     margin-left: 5%;
     width: 120px;
@@ -241,14 +242,15 @@ li span:hover:not(.active) {
     background-size: 25px 25px;
     background-position: 0px 4px;
     background-repeat: no-repeat;
-    transition: width 0.7s;
+    transition: 0.7s;
     transition-timing-function: cubic-bezier(.98, .02, .50, 1.20);
 }
 .searchInputText::-webkit-input-placeholder {
-  color: #D5DDDE;
+	color: #D5DDDE;
 }
 
 .searchInputText:focus {
+	opacity: 1.0;
     width: 500px;
 }
 
