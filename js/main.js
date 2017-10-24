@@ -28,6 +28,9 @@ function get(url, callback) {
             callback(xmlHttp.responseText);
         }
     };
+    xmlHttp.onerror = function(error) {
+        console.log('Error connecting to server.');
+    }
     xmlHttp.open("GET", url, true); // true for asynchronous 
     xmlHttp.send(null);
 }
