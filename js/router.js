@@ -13,7 +13,7 @@ angular.module('forumApp').config(function($routeProvider, $locationProvider) {
 
     function isNotLoggedIn($location, newLocation) {
         var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn'));
-        if(loggedIn === false) {
+        if(loggedIn === false || loggedIn === null) {
             $location.path(newLocation);
         }
     }
@@ -85,7 +85,7 @@ angular.module('forumApp').config(function($routeProvider, $locationProvider) {
         templateUrl: 'partials/user.html', 
         controller: 'userCtrl'
     })
-    .when('/thread/:id', {
+    .when('/threads/:id', {
         resolve: {
             "check": function($location) {
                 isNotLoggedIn($location, '/');
