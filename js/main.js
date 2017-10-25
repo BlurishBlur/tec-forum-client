@@ -14,16 +14,16 @@ function getUrl(route) {
 }
 
 function colorBorderRed(inputElement) {
-	inputElement.css("border", "3px solid #840200");
+    inputElement.css("border", "3px solid #840200");
 }
 
 function colorBorderGrey(inputElement) {
-	inputElement.css("border", "3px solid #9EA9AB");
+    inputElement.css("border", "3px solid #9EA9AB");
 }
 
 function get(url, callback) {
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function () {
+    xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
             callback(xmlHttp.responseText);
         }
@@ -37,18 +37,18 @@ function get(url, callback) {
 
 function getWithParams(url, data, callback) {
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function () {
+    xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
             callback(xmlHttp.responseText);
         }
     };
-    xmlHttp.open("GET", url+'?id='+data, true); // true for asynchronous 
+    xmlHttp.open("GET", url + '?id=' + data, true); // true for asynchronous 
     xmlHttp.send(null);
 }
 
-function put (url, data, callback) {
+function put(url, data, callback) {
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function () {
+    xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
             callback(xmlHttp.responseText);
         }
@@ -57,9 +57,9 @@ function put (url, data, callback) {
     xmlHttp.send(data);
 }
 
-function post (url, data, callback) {
+function post(url, data, callback) {
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function () {
+    xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
             callback(xmlHttp.responseText);
         }

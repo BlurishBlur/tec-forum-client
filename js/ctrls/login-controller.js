@@ -3,7 +3,7 @@
 /*global $, jQuery, alert*/
 
 
-angular.module('forumApp').controller('loginCtrl', function ($scope, $location) {
+angular.module('forumApp').controller('loginCtrl', function($scope, $location) {
     "use strict";
 
     var route = '/users';
@@ -14,17 +14,16 @@ angular.module('forumApp').controller('loginCtrl', function ($scope, $location) 
         }
     }
 
-    function postUser () {
-        var userObj = JSON.stringify( {username: $scope.username, password: $scope.password} );
-        post(getUrl(route), userObj, function (content) {
+    function postUser() {
+        var userObj = JSON.stringify({ username: $scope.username, password: $scope.password });
+        post(getUrl(route), userObj, function(content) {
             var logInDTO = JSON.parse(content);
 
             sessionStorage.setItem('loggedIn', JSON.stringify(logInDTO.loggedIn));
             if (logInDTO.loggedIn === true) {
                 sessionStorage.setItem('user', JSON.stringify($scope.username)); //skal laves om til at holde id
                 $location.path('/dashboard');
-            }
-            else {
+            } else {
                 $scope.loginReturnMessage = logInDTO.message;
                 colorBorderRed($j("#username"));
                 colorBorderRed($j("#password"));
@@ -35,7 +34,7 @@ angular.module('forumApp').controller('loginCtrl', function ($scope, $location) 
             $scope.$apply();
         });
     };
-    
+
     $scope.logIn = function() {
         postUser();
     }

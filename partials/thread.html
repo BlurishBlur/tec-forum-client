@@ -1,8 +1,9 @@
 <script type="text/javascript">
-    if(typeof angular === 'undefined'){
-      document.location.href="/404";
+    if (typeof angular === 'undefined') {
+        document.location.href = "/404";
     }
 </script>
+
 <div>
     <div class="thread-content">
         <section class="thread-section">
@@ -18,16 +19,16 @@
                     <span class="comment-date">{{comment.creationDate}}</span>
                 </div>
                 <div class="comment-text comment-data">
-                    {{comment.content}}        
+                    {{comment.content}}
                 </div>
             </div>
-            
+
 
         </section>
         <section class="thread-comment-inputs">
-                <textarea rows="10" placeholder="Write your comment here.."></textarea>
-                <input type="button" value="Submit comment" />
+            <textarea rows="10" placeholder="Write your comment here.."></textarea>
+            <input type="button" value="Submit comment" />
         </section>
     </div>
-    
+
 </div>

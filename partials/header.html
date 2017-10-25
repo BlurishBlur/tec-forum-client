@@ -1,47 +1,47 @@
 <script type="text/javascript">
-  if(typeof angular === 'undefined'){
-    document.location.href="/404";
-  }
+    if (typeof angular === 'undefined') {
+        document.location.href = "/404";
+    }
 </script>
 
 <ul>
-	<li><span id="headerHome" ng-click="goToHome()">Home</span></li>
-	<li><span id="headerCategories" ng-click="goToCategories()">Categories</span></li>
-	<li><span href="/topics">My Topics</span></li>
-	<input id="search" type="text" placeholder="Search..." class="searchInputText">
-	<li class="right"><span ng-click="logOut()">Log Out</span></li>
-	<li class="right dropdown">
-		<span href="javascript:void(0)" class="dropbutton">My Account ({{username}})</span>
-		<div class="dropdown-content">
-			<span ng-click="changePassword()" class="subSpan">Change Password</span>
-			<span ng-click="showWarning()" class="subSpan">Delete Account</span>
-		</div>
-	</li>
+    <li><span id="headerHome" ng-click="goToHome()">Home</span></li>
+    <li><span id="headerCategories" ng-click="goToCategories()">Categories</span></li>
+    <li><span href="/topics">My Topics</span></li>
+    <input id="search" type="text" placeholder="Search..." class="searchInputText">
+    <li class="right"><span ng-click="logOut()">Log Out</span></li>
+    <li class="right dropdown">
+        <span href="javascript:void(0)" class="dropbutton">My Account ({{username}})</span>
+        <div class="dropdown-content">
+            <span ng-click="changePassword()" class="subSpan">Change Password</span>
+            <span ng-click="showWarning()" class="subSpan">Delete Account</span>
+        </div>
+    </li>
 </ul>
 <div id="popUpBox" class="popUpBox">
-	<div class="popUpBox-content">
-		<div class="boxHeader">
-			<span ng-click="close()" id="close" class="close">&times;</span>
-			<p>DELETE ACCOUNT</p>
-		</div>
-		<div class="boxBody">
-			<p>You are about to delete your account.</p>
-			<p>Are you sure?<br><br></p>
-			<button class="button"><span>OK</span></button><button class="button right" ng-click="close()"><span>CANCEL</span></button><br><br>	
-		</div>
-	</div>
+    <div class="popUpBox-content">
+        <div class="boxHeader">
+            <span ng-click="close()" id="close" class="close">&times;</span>
+            <p>DELETE ACCOUNT</p>
+        </div>
+        <div class="boxBody">
+            <p>You are about to delete your account.</p>
+            <p>Are you sure?<br><br></p>
+            <button class="button"><span>OK</span></button><button class="button right" ng-click="close()"><span>CANCEL</span></button><br><br>
+        </div>
+    </div>
 </div>
 <div id="popUpPasswordChange" class="popUpBox">
-	<div class="popUpBox-content">
-		<div class="boxHeader">
-			<span ng-click="close()" id="close" class="close">&times;</span>
-			<p>CHANGE PASSWORD</p>
-		</div>
-		<div class="boxBody">
-			<p>Write your new password here:</p><br>
-			<input id="passwordChange" type="password" class="inputText" placeholder="New Password..."><br><br>
-			<input id="repeatChange" type="password" class="inputText" placeholder="Confirm Password..."><br><br>
-			<button class="button"><span>OK</span></button><button class="button right" ng-click="close()"><span>CANCEL</span></button><br><br>
-		</div>
-	</div>
+    <div class="popUpBox-content">
+        <div class="boxHeader">
+            <span ng-click="close()" id="close" class="close">&times;</span>
+            <p>CHANGE PASSWORD</p>
+        </div>
+        <div class="boxBody">
+            <p>Write your new password here:</p><br>
+            <input id="passwordChange" type="password" class="inputText" placeholder="New Password..."><br><br>
+            <input id="repeatChange" type="password" class="inputText" placeholder="Confirm Password..."><br><br>
+            <button class="button"><span>OK</span></button><button class="button right" ng-click="close()"><span>CANCEL</span></button><br><br>
+        </div>
+    </div>
 </div>

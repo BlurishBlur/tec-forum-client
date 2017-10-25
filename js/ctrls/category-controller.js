@@ -2,7 +2,7 @@
 /*jslint browser: true*/
 /*global $, jQuery, alert*/
 
-angular.module('forumApp').controller('categoryCtrl', function ($scope, $location, $routeParams) {
+angular.module('forumApp').controller('categoryCtrl', function($scope, $location, $routeParams) {
     "use strict";
 
     $scope.$on("$routeChangeSuccess", function(event, next, current) {
@@ -10,8 +10,8 @@ angular.module('forumApp').controller('categoryCtrl', function ($scope, $locatio
         getThreadsInCategory();
     })
 
-    function getThreadsInCategory () {
-        getWithParams(getUrl('/categories/threads'), $routeParams.id, function (content) {
+    function getThreadsInCategory() {
+        getWithParams(getUrl('/categories/threads'), $routeParams.id, function(content) {
             var threadsDTO = JSON.parse(content);
 
             //INDSÆT KODE HER

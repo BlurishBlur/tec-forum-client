@@ -1,38 +1,39 @@
 <script type="text/javascript">
-    if(typeof angular === 'undefined'){
-      document.location.href="/404";
+    if (typeof angular === 'undefined') {
+        document.location.href = "/404";
     }
-  </script>
-  <div>
-      <div class="dashboard-content">
-          <div class="dashboard-content-header">
+</script>
+
+<div>
+    <div class="dashboard-content">
+        <div class="dashboard-content-header">
             <div class="dashboard-title">Category</div>
             <div class="dashboard-posts">Posts</div>
             <div class="dashboard-comments">Comments</div>
             <div class="dashboard-latest">Latest activity</div>
-          </div>
-          <div class="dashboard-content">
-          <div class="dashboard-content-post" ng-repeat="post in categoriesDTO">
-              <div class="dashboard-title">
-                  <span class="dashboard-title-header">
+        </div>
+        <div class="dashboard-content">
+            <div class="dashboard-content-post" ng-repeat="post in categoriesDTO">
+                <div class="dashboard-title">
+                    <span class="dashboard-title-header">
                     <a href="#">{{post.title}}</a>
                   </span>
-                  <span class="dashboard-title-text">{{post.description}}</span>
+                    <span class="dashboard-title-text">{{post.description}}</span>
                 </div>
                 <div class="dashboard-posts">
-                  <span class="dashboard-posts-text">{{post.postsCount}}</span>
+                    <span class="dashboard-posts-text">{{post.postsCount}}</span>
                 </div>
                 <div class="dashboard-comments">
-                  <span class="dashboard-comments-text">{{post.commentsCount}}</span>
+                    <span class="dashboard-comments-text">{{post.commentsCount}}</span>
                 </div>
                 <div class="dashboard-latest">
                     <span class="dashboard-latest-text">
                         <span class="dashboard-latest-author"><a href="#">Some thread</a> by <a href="users/2"><!-- "user/{{user.id}}-->Niels</a></span>
-                        <br />
-                        <span class="dashboard-latest-timestamp">2 hours ago, at 15:35</span>
+                    <br />
+                    <span class="dashboard-latest-timestamp">2 hours ago, at 15:35</span>
                     </span>
                 </div>
-          </div>  
-          </div>
+            </div>
         </div>
-  </div>
+    </div>
+</div>
