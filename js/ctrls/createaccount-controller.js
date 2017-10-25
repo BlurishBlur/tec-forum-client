@@ -2,17 +2,17 @@
 /*jslint browser: true*/
 /*global $j, jQuery, alert*/
 
-angular.module('forumApp').controller('createAccountCtrl', function ($scope, $location) {
+angular.module('forumApp').controller('createAccountCtrl', function($scope, $location) {
     "use strict";
 
     var route = '/users';
     var typingTimeout;
 
     $scope.$on("$routeChangeSuccess", function(event, next, current) {
-        $j('.input').on('keyup', '#password', function() {
+        $j('#password').keyup(function() {
             checkPassword();
         });
-        $j('.input').on('keyup', '#repeat', function() {
+        $j('#repeat').keyup(function() {
             checkPassword();
         });
     })
@@ -45,16 +45,16 @@ angular.module('forumApp').controller('createAccountCtrl', function ($scope, $lo
         }
     }
 
-    function putUser () {
-        var userObj = JSON.stringify( {username: $scope.username, password: $scope.password} );
+    function putUser() {
+        var userObj = JSON.stringify({ username: $scope.username, password: $scope.password });
 
-        put(getUrl(route), userObj, function (content) {
+        put(getUrl(route), userObj, function(content) {
             var saveUserDTO = JSON.parse(content);
             $scope.returnMessage = saveUserDTO.message;
             $scope.$apply()
         });
     };
- 
+
     function reset() {
         $scope.returnMessage = '';
         $scope.usernameReturnMessage = '';
@@ -64,8 +64,8 @@ angular.module('forumApp').controller('createAccountCtrl', function ($scope, $lo
         colorBorderGrey($j("#password"));
         colorBorderGrey($j("#repeat"));
     }
-    
-    $scope.createUser = function () {
+
+    $scope.createUser = function() {
         reset();
         var errors = 0;
         // Check username
@@ -79,13 +79,13 @@ angular.module('forumApp').controller('createAccountCtrl', function ($scope, $lo
             $scope.passwordReturnMessage = "Please check that password is more than 6 characters.";
             colorBorderRed($j("#password"));
             errors++;
-        } 
+        }
         // Check if pass and username is equal
         if ($scope.username != undefined && $scope.password != undefined && $scope.username === $scope.password) {
             $scope.passwordReturnMessage = "Username and password cannot be the same.";
             colorBorderRed($j("#password"));
             errors++;
-        } 
+        }
         // Check if passwords matches
         if ($scope.password === undefined || $scope.repeat === undefined || $scope.password !== $scope.repeat) {
             $scope.repeatPasswordReturnMessage = "Password does not match.";
@@ -97,8 +97,7 @@ angular.module('forumApp').controller('createAccountCtrl', function ($scope, $lo
         // Final error check
         if (errors === 0) {
             putUser();
-        }
-        else {
+        } else {
             $scope.returnMessage = "There " + (errors > 1 ? " were " + errors + " errors" : " was 1 error") + ".";
         }
     }
