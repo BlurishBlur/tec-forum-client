@@ -8,14 +8,18 @@
     <div class="thread-content">
         <section class="thread-section">
             <div class="thread-title">{{threadDTO.title}}</div>
-            <div class="thread-metadata">By <a href="/users/{{threadDTO.authorId}}">{{threadDTO.author}}</a> &middot; At {{threadDTO.creationDate}}</div>
+            <div class="thread-metadata">By
+                <a href="/users/{{threadDTO.authorId}}">{{threadDTO.author}}</a> &middot; At {{threadDTO.creationDate}}</div>
             <div class="thread-text">{{threadDTO.content}}</div>
         </section>
         <section class="comment-section">
             <div class="comment-header">Comments</div>
             <div class="thread-comment" ng-repeat="comment in commentsDTO">
                 <div class="comment-metadata comment-data">
-                    <span class="comment-author"><a href="/users/{{comment.authorId}}">{{comment.author}}</a></span><br />
+                    <span class="comment-author">
+                        <a href="/users/{{comment.authorId}}">{{comment.author}}</a>
+                    </span>
+                    <br />
                     <span class="comment-date">{{comment.creationDate}}</span>
                 </div>
                 <div class="comment-text comment-data">
@@ -23,11 +27,10 @@
                 </div>
             </div>
 
-
         </section>
         <section class="thread-comment-inputs">
-                <textarea placeholder="Write your comment here.."></textarea>
-                <input type="button" value="Submit comment" />
+            <textarea placeholder="Write your comment here.."></textarea>
+            <input type="button" value="Submit comment" />
         </section>
     </div>
 
