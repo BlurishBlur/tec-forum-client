@@ -46,6 +46,10 @@ function getWithParams(url, data, callback) {
     xmlHttp.send(null);
 }
 
+function getWithParamsAndPolling(url, data, callback) {
+    
+}
+
 function put(url, data, callback) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
