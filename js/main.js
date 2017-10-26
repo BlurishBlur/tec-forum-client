@@ -66,7 +66,7 @@ function post(url, data, callback) {
     };
     xmlHttp.open("POST", url, true); // true for asynchronous 
     xmlHttp.send(data);
-};
+}
 
 
 /*
