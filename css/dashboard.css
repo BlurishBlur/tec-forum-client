@@ -26,6 +26,10 @@
     color: #4c585f;
 }
 
+.dashboard-content-post:last-child {
+    border: 0;
+}
+
 .dashboard-content-post div {
     font-family: 'Open Sans', sans-serif;
     font-weight: light;
