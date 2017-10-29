@@ -19,9 +19,9 @@ angular.module('forumApp').controller('loginCtrl', function($scope, $location) {
         post(getUrl(route), userObj, function(content) {
             var logInDTO = JSON.parse(content);
 
-            sessionStorage.setItem('loggedIn', JSON.stringify(logInDTO.loggedIn));
+            sessionStorage.setItem(loggedInToken, JSON.stringify(logInDTO.loggedIn));
             if (logInDTO.loggedIn === true) {
-                sessionStorage.setItem('user', JSON.stringify($scope.username)); //skal laves om til at holde id
+                sessionStorage.setItem(userToken, JSON.stringify($scope.username)); //skal laves om til at holde id
                 $location.path('/dashboard');
             } else {
                 $scope.loginReturnMessage = logInDTO.message;

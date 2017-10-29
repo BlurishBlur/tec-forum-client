@@ -35,15 +35,13 @@ function post(url, data, callback) {
 angular.module('forumApp').config(function($routeProvider, $locationProvider) {
 
     function isLoggedIn($location, newLocation) {
-        var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn'));
-        if (loggedIn === true) {
+        if (getIsLoggedIn() === true) {
             $location.path(newLocation);
         }
     }
 
     function isNotLoggedIn($location, newLocation) {
-        var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn'));
-        if (loggedIn === false || loggedIn === null) {
+        if (!getIsLoggedIn()) {
             $location.path(newLocation);
         }
     }

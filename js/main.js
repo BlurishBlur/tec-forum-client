@@ -3,6 +3,8 @@
 /*global $, jQuery, alert*/
 var $j = jQuery.noConflict();
 var app = angular.module('forumApp', ['ngRoute']);
+var loggedInToken = 'loggedIn';
+var userToken = 'user';
 var config;
 $j.getJSON('./cfg/config.json', function(response) {
     config = response;
@@ -11,6 +13,10 @@ $j.getJSON('./cfg/config.json', function(response) {
 function getUrl(route) {
     console.log("http://%s:%s%s", config.host, config.port, route);
     return "http://" + config.host + ":" + config.port + route;
+}
+
+function getIsLoggedIn() {
+    return JSON.parse(sessionStorage.getItem(loggedInToken));
 }
 
 function colorBorderRed(inputElement) {

@@ -8,9 +8,9 @@ angular.module('forumApp').controller('headerCtrl', function($scope, $location) 
     $scope.header = { name: 'header.html', url: './partials/header.html' };
 
     $scope.isLoggedIn = function() {
-        var isLoggedIn = JSON.parse(sessionStorage.getItem('loggedIn'));
+        var isLoggedIn = getIsLoggedIn();
         if (isLoggedIn === true) {
-            $scope.username = JSON.parse(sessionStorage.getItem('user'));
+            $scope.username = JSON.parse(sessionStorage.getItem(userToken));
         }
         return isLoggedIn;
     }
@@ -24,7 +24,7 @@ angular.module('forumApp').controller('headerCtrl', function($scope, $location) 
     }
 
     $scope.logOut = function() {
-        sessionStorage.setItem('loggedIn', JSON.stringify(false));
+        sessionStorage.setItem(loggedInToken, JSON.stringify(false));
         $location.path('/');
     }
 
