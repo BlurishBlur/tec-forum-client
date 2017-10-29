@@ -43,11 +43,9 @@ function getWithParams(url, data, callback) {
         }
     };
     xmlHttp.open("GET", url + '?id=' + data, true); // true for asynchronous 
+    //xmlHttp.timeout = 4000;
+    xmlHttp.ontimeout = function() {console.log("timed out");}
     xmlHttp.send(null);
-}
-
-function getWithParamsAndPolling(url, data, callback) {
-    
 }
 
 function put(url, data, callback) {

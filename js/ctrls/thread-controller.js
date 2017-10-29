@@ -35,10 +35,29 @@ angular.module('forumApp').controller('threadCtrl', function($scope, $location, 
     function getThreadComments() {
         getWithParams(getUrl('/thread/comments'), $routeParams.id, function(content) {
             $scope.commentsDTO = JSON.parse(content);
-            console.log("Interval");
             $scope.$apply();
-            // Repoll
-            getThreadComments();
+
+            // Start poll
+            commentPoll();
         });
+    }
+
+    function commentPoll() {
+        getWithParams(getUrl('/thread/commentsPoll'), $routeParams.id, function(content) {
+            $scope.commentsDTO = JSON.parse(content);
+            $scope.$apply();
+
+            // Repoll
+            commentPoll();
+        });
+    }
+
+    $scope.submitComment = function() {
+        console.log("Submit clicked");
+        var commentParams = { threadId: $routeParams.id, comment: $scope.comment };
+        put(getUrl('/thread/submitComment'), commentParams, function(content) {
+            console.log("Submit sent");
+
+        })
     }
 });

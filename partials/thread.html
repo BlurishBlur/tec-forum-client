@@ -29,8 +29,8 @@
 
         </section>
         <section class="thread-comment-inputs">
-            <textarea placeholder="Write your comment here.."></textarea>
-            <input type="button" value="Submit comment" />
+            <textarea ng-model="comment" placeholder="Write your comment here.."></textarea>
+            <input type="button" ng-click="submitComment()" value="Submit comment" />
         </section>
     </div>
 
