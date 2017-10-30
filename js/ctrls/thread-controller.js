@@ -9,12 +9,12 @@ angular.module('forumApp').controller('threadCtrl', function($scope, $location, 
         getThreadComments();
 
         // Polling
-        //interval = $interval(getThreadComments, 1000);
+        interval = $interval(getThreadComments, 5000);
     })
 
     $scope.$on("$destroy", function() {
+        // Stop polling when leaving thread
         $interval.cancel(interval);
-        console.log("Stop");
     });
 
     function getThread() {
@@ -36,19 +36,6 @@ angular.module('forumApp').controller('threadCtrl', function($scope, $location, 
         getWithParams(getUrl('/thread/comments'), $routeParams.id, function(content) {
             $scope.commentsDTO = JSON.parse(content);
             $scope.$apply();
-
-            // Start poll
-            commentPoll();
-        });
-    }
-
-    function commentPoll() {
-        getWithParams(getUrl('/thread/commentsPoll'), $routeParams.id, function(content) {
-            $scope.commentsDTO = JSON.parse(content);
-            $scope.$apply();
-
-            // Repoll
-            commentPoll();
         });
     }
 
