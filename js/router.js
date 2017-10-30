@@ -2,18 +2,46 @@
 /*jslint browser: true*/
 /*global $, jQuery, alert*/
 
+function xmlHttp(method, url, data, callback) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() {
+        if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
+            callback(xmlHttp.responseText);
+        }
+    };
+    xmlHttp.onerror = function(error) {
+        console.log('Error connecting to server.');
+    }
+    xmlHttp.open(method, url, true); // true for asynchronous 
+    xmlHttp.send(data);
+}
+
+function get(url, callback) {
+    xmlHttp('GET', url, null, callback);
+}
+
+function getWithParams(url, data, callback) {
+    xmlHttp('GET', url + '?id=' + data, null, callback);
+}
+
+function put(url, data, callback) {
+    xmlHttp('PUT', url, data, callback);
+}
+
+function post(url, data, callback) {
+    xmlHttp('POST', url, data, callback);
+}
+
 angular.module('forumApp').config(function($routeProvider, $locationProvider) {
 
     function isLoggedIn($location, newLocation) {
-        var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn'));
-        if (loggedIn === true) {
+        if (getIsLoggedIn() === true) {
             $location.path(newLocation);
         }
     }
 
     function isNotLoggedIn($location, newLocation) {
-        var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn'));
-        if (loggedIn === false || loggedIn === null) {
+        if (!getIsLoggedIn()) {
             $location.path(newLocation);
         }
     }
@@ -64,18 +92,6 @@ angular.module('forumApp').config(function($routeProvider, $locationProvider) {
             templateUrl: 'partials/categories.html', // skal ændres til category.html
             controller: 'categoryCtrl'
         })
-        /*.when('/user', {
-            resolve: {
-                "check": function($location) {
-                    var loggedIn = JSON.parse(sessionStorage.getItem('loggedIn'));
-                    if(!loggedIn) {
-                        $location.path('/');
-                    }
-                }
-            }, 
-            templateUrl: 'partials/user.html', 
-            controller: 'userCtrl'
-        })*/
         .when('/users/:id', {
             resolve: {
                 "check": function($location) {

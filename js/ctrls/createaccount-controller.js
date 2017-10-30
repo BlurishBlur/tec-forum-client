@@ -56,7 +56,9 @@ angular.module('forumApp').controller('createAccountCtrl', function($scope, $loc
     };
 
     function reset() {
-        $scope.returnMessage = '';
+    	if($scope.returnMessage != 'User created.') {
+        	$scope.returnMessage = '';
+    	}
         $scope.usernameReturnMessage = '';
         $scope.passwordReturnMessage = '';
         $scope.repeatPasswordReturnMessage = '';
