@@ -54,10 +54,13 @@ angular.module('forumApp').controller('threadCtrl', function($scope, $location, 
 
     $scope.submitComment = function() {
         console.log("Submit clicked");
-        var commentParams = { threadId: $routeParams.id, comment: $scope.comment };
+        var userID = sessionStorage.getItem('userId');
+        console.log(userID);
+        var commentParams = JSON.stringify({ threadId: $routeParams.id, authorId: userID, comment: $scope.comment });
         put(getUrl('/thread/submitComment'), commentParams, function(content) {
             console.log("Submit sent");
-
+            $scope.comment = ''; 
+            $scope.$apply();
         })
     }
 });
