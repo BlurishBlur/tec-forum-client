@@ -17,6 +17,7 @@ angular.module('forumApp').controller('userCtrl', function($scope, $location, $r
         console.log('paramsid : ' + $routeParams.id);
         getUser();
         getUserThreads();
+        getUserComments();
     })
 
     function getUserThreads() {
