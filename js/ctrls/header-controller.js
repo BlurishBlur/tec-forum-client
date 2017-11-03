@@ -10,7 +10,7 @@ angular.module('forumApp').controller('headerCtrl', function($scope, $location) 
     $scope.isLoggedIn = function() {
         var isLoggedIn = getIsLoggedIn();
         if (isLoggedIn === true) {
-            $scope.username = JSON.parse(sessionStorage.getItem(userToken));
+            $scope.username = JSON.parse(sessionStorage.getItem(userToken)).username;
         }
         return isLoggedIn;
     }
