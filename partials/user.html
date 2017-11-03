@@ -15,7 +15,7 @@
                 <div class="userdata-posts-header">Posts by {{userDTO.username}}</div>
                 <div class="userdata-posts-entry" ng-repeat="thread in threadsDTO">
                     <span class="userdata-posts-entry-title"><a href="threads/{{thread.id}}">{{thread.title}}</a></span><br />
-                    <span class="userdata-posts-entry-threadinfo">{{thread.difference}} {{thread.notation}} ago &middot; {{thread.commentCount}} comments &middot; last activity 4 min ago</span>
+                    <span class="userdata-posts-entry-threadinfo">{{thread.threadDateDifference}} {{thread.threadDateNotation}} ago &middot; {{thread.commentCount}} comments &middot; last activity {{thread.latestActivity}} {{thread.latestActivityNotation}} ago</span>
                 </div>
             </div>
 

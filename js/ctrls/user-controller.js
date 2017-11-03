@@ -25,18 +25,28 @@ angular.module('forumApp').controller('userCtrl', function($scope, $location, $r
             $scope.threadsDTO = JSON.parse(content);
 
             for (var i = 0; i < $scope.threadsDTO.length; i++) {
-                var difference = (new Date() - new Date($scope.threadsDTO[i].creationDate)) / (1000); // miliseconds --> seconds
-                var factor = 1;
-                var notation = 'second';
+                var threadDateDifference = (new Date() - new Date($scope.threadsDTO[i].creationDate)) / (1000); // miliseconds --> seconds
+                var latestActivity = (new Date() - new Date($scope.threadsDTO[i].latestActivity)) / (1000);
+                var threadDateFactor = 1;
+                var threadDateNotation = 'second';
+                var latestActivityFactor = 1;
+                var latestActivityNotation = 'second';
 
                 for (var unit in units) {
-                    if (difference > (units[unit] - 1)) {
-                        factor = units[unit];
-                        notation = unit;
+                    if (threadDateDifference > (units[unit] - 1)) {
+                        threadDateFactor = units[unit];
+                        threadDateNotation = unit;
+                    }
+
+                    if(latestActivity > (units[unit] - 1)) {
+                        latestActivityFactor = units[unit];
+                        latestActivityNotation = unit;
                     }
                 }
-                $scope.threadsDTO[i].difference = Math.round(difference / factor);
-                $scope.threadsDTO[i].notation = ($scope.threadsDTO[i].difference > 1 ? notation + 's' : notation);
+                $scope.threadsDTO[i].threadDateDifference = Math.round(threadDateDifference / threadDateFactor);
+                $scope.threadsDTO[i].threadDateNotation = ($scope.threadsDTO[i].threadDateDifference > 1 ? threadDateNotation + 's' : threadDateNotation);
+                $scope.threadsDTO[i].latestActivity = Math.round(latestActivity / latestActivityFactor);
+                $scope.threadsDTO[i].latestActivityNotation = ($scope.threadsDTO[i].latestActivity > 1 ? latestActivityNotation + 's' : latestActivityNotation);
             }
 
             $scope.$apply();
