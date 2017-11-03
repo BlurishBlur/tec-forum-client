@@ -25,6 +25,7 @@ angular.module('forumApp').controller('headerCtrl', function($scope, $location) 
 
     $scope.logOut = function() {
         sessionStorage.setItem(loggedInToken, JSON.stringify(false));
+        $scope.close();
         $location.path('/');
     }
 
