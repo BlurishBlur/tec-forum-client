@@ -57,5 +57,11 @@ angular.module('forumApp').controller('userCtrl', function($scope, $location, $r
         });
     }
 
+    function getUserComments() {
+        getWithParams(getUrl('/users/comments'), $routeParams.id, function(content) {
+            $scope.commentsDTO = JSON.parse(content);
+            $scope.$apply();
+        });
+    }
 
 });
