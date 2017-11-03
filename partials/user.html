@@ -21,17 +21,9 @@
 
             <div class="userdata-comments userdata-activity">
                 <div class="userdata-comments-header">Comments by {{userDTO.username}}</div>
-                <div class="userdata-comments-entry">
-                    <span class="userdata-comments-entry-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui officiis eos quaerat odit id harum!..</span><br /><br />
-                    <span class="userdata-comments-entry-info">In thread <a href="#">How to program F#</a></span>
-                </div>
-                <div class="userdata-comments-entry">
-                    <span class="userdata-comments-entry-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui officiis eos quaerat odit id harum!..</span><br /><br />
-                    <span class="userdata-comments-entry-info">In thread <a href="#">How to program C</a></span>
-                </div>
-                <div class="userdata-comments-entry">
-                    <span class="userdata-comments-entry-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui officiis eos quaerat odit id harum!..</span><br /><br />
-                    <span class="userdata-comments-entry-info">In thread <a href="#">How to program ASP</a></span>
+                <div class="userdata-comments-entry" ng-repeat="comment in commentsDTO">
+                    <span class="userdata-comments-entry-comment">comment.content</span><br /><br />
+                    <span class="userdata-comments-entry-info">In thread <a href="threads/{{comment.threadId}}">comment.threadTitle</a></span>
                 </div>
             </div>
         </section>
