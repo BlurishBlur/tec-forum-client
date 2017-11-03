@@ -42,7 +42,8 @@ angular.module('forumApp').controller('threadCtrl', function($scope, $location, 
 
     $scope.submitComment = function() {
         console.log("Submit clicked");
-        if ($scope.comment === "") {
+        console.log($scope.comment);
+        if ($scope.comment === "" || $scope.comment === undefined) {
             $j(".commentMessage").show();
         } else {
             $j(".commentMessage").hide();
