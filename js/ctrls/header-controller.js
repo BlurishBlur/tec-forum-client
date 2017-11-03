@@ -40,4 +40,12 @@ angular.module('forumApp').controller('headerCtrl', function($scope, $location) 
         $j("#popUpBox").hide();
         $j("#popUpPasswordChange").hide();
     }
+
+    $scope.deleteUser = function() {
+        console.log('deluser');
+        del(getUrl('/users'), sessionStorage.getItem(userToken), function(content) {
+            $scope.logOut();
+            $scope.$apply();
+        });
+    }
 });

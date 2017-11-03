@@ -32,6 +32,10 @@ function post(url, data, callback) {
     xmlHttp('POST', url, data, callback);
 }
 
+function del(url, data, callback) {
+    xmlHttp('DELETE', url, data, callback);
+}
+
 angular.module('forumApp').config(function($routeProvider, $locationProvider) {
 
     function isLoggedIn($location, newLocation) {
