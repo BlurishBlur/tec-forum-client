@@ -22,6 +22,7 @@ angular.module('forumApp').controller('loginCtrl', function($scope, $location) {
             sessionStorage.setItem(loggedInToken, JSON.stringify(logInDTO.loggedIn));
             if (logInDTO.loggedIn === true) {
                 sessionStorage.setItem(userToken, JSON.stringify($scope.username)); //skal laves om til at holde id
+                sessionStorage.setItem('userId', logInDTO.id);
                 $location.path('/dashboard');
             } else {
                 $scope.loginReturnMessage = logInDTO.message;
