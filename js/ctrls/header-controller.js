@@ -49,4 +49,31 @@ angular.module('forumApp').controller('headerCtrl', function($scope, $location) 
             $scope.$apply();
         });
     }
+
+    $scope.search = function() {
+        console.log($scope.searchTerm);
+        //$location.path('/search/' + $scope.searchTerm);
+    }
+
+});
+
+app.filter('search', function() {
+
+
+
+    return function(threadsList, searchTerm) {
+        if (!searchTerm) {
+            return threadsList;
+        }
+
+        var result = [];
+        searchTerm = searchTerm.toLowerCase();
+
+        for (var i = 0; i < threadsList.length; i++) {
+            //if (threadsList[i].)
+
+        }
+
+    }
+
 });
