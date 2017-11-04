@@ -14,7 +14,6 @@ angular.module('forumApp').controller('userCtrl', function($scope, $location, $r
     "use strict";
 
     $scope.$on("$routeChangeSuccess", function(event, next, current) {
-        console.log('paramsid : ' + $routeParams.id);
         getUser();
         getUserThreads();
         getUserComments();

@@ -21,7 +21,7 @@ angular.module('forumApp').controller('loginCtrl', function($scope, $location) {
 
             sessionStorage.setItem(loggedInToken, JSON.stringify(logInDTO.loggedIn));
             if (logInDTO.loggedIn === true) {
-                sessionStorage.setItem(userToken, JSON.stringify({ username: $scope.username, id: logInDTO.id }));
+                sessionStorage.setItem(userToken, JSON.stringify({ username: logInDTO.username, id: logInDTO.id }));
                 $location.path('/dashboard');
             } else {
                 $scope.loginReturnMessage = logInDTO.message;

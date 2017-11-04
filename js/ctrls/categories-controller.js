@@ -16,9 +16,6 @@ angular.module('forumApp').controller('categoriesCtrl', function($scope, $locati
     function getCategories() {
         get(getUrl(route), function(content) {
             $scope.categoriesDTO = JSON.parse(content);
-
-            //console.log(categoriesDTO);
-
             $scope.$apply();
         });
     }

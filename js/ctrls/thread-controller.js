@@ -4,7 +4,6 @@ angular.module('forumApp').controller('threadCtrl', function($scope, $location, 
     var interval;
 
     $scope.$on("$routeChangeSuccess", function(event, next, current) {
-        console.log('paramsid : ' + $routeParams.id);
         getThread();
         getThreadComments();
 
