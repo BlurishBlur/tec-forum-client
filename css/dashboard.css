@@ -109,3 +109,10 @@
 .dashboard-latest-timestamp {
     font-size: 0.8rem;
 }
+
+.category-title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: #4c585f;
+}

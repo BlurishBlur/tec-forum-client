@@ -11,12 +11,35 @@ angular.module('forumApp').controller('categoryCtrl', function($scope, $location
     })
 
     function getThreadsInCategory() {
+        $scope.categoryTitle = $routeParams.id;
         getWithParams(getUrl('/categories/threads'), $routeParams.id, function(content) {
-            var threadsDTO = JSON.parse(content);
+            $scope.threadsDTO = JSON.parse(content);
 
-            //INDSÆT KODE HER
+            for (var i = 0; i < $scope.threadsDTO.length; i++) {
+                var threadDateDifference = (new Date() - new Date($scope.threadsDTO[i].creationDate)) / (1000); // miliseconds --> seconds
+                var latestActivity = (new Date() - new Date($scope.threadsDTO[i].latestActivity)) / (1000);
+                var threadDateFactor = 1;
+                var threadDateNotation = 'second';
+                var latestActivityFactor = 1;
+                var latestActivityNotation = 'second';
+        
+                for (var unit in units) {
+                    if (threadDateDifference > (units[unit] - 1)) {
+                        threadDateFactor = units[unit];
+                        threadDateNotation = unit;
+                    }
 
-            console.log(threadsDTO);
+                    if(latestActivity > (units[unit] - 1)) {
+                        latestActivityFactor = units[unit];
+                        latestActivityNotation = unit;
+                    }
+                }
+                $scope.threadsDTO[i].threadDateDifference = Math.round(threadDateDifference / threadDateFactor);
+                $scope.threadsDTO[i].threadDateNotation = ($scope.threadsDTO[i].threadDateDifference > 1 ? threadDateNotation + 's' : threadDateNotation);
+                $scope.threadsDTO[i].latestActivity = Math.round(latestActivity / latestActivityFactor);
+                $scope.threadsDTO[i].latestActivityNotation = ($scope.threadsDTO[i].latestActivity > 1 ? latestActivityNotation + 's' : latestActivityNotation);       
+            }
+
 
             $scope.$apply();
         });

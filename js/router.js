@@ -123,6 +123,15 @@ angular.module('forumApp').config(function($routeProvider, $locationProvider) {
             templateUrl: 'partials/dashboard.html',
             controller: 'searchCtrl'
         })
+        .when('/category/:id', {
+            resolve: {
+                "check": function($location) {
+                    isNotLoggedIn($location, '/');
+                }
+            },
+            templateUrl: 'partials/category.html',
+            controller: 'categoryCtrl'
+        })
         .when('/404', {
             templateUrl: 'partials/404.html'
         })
