@@ -38,6 +38,15 @@ angular.module('forumApp').controller('headerCtrl', function($scope, $location) 
         $j("#popUpPasswordChange").show();
     }
 
+    $scope.changePass = function() {
+        var user = JSON.parse(sessionStorage.getItem(userToken));
+        var newPasswordObj = JSON.stringify({newPassword: $scope.newPassword, username: user.username, id: user.id});
+        post(getUrl('/change'), newPasswordObj, function(content) {
+            $scope.close();
+            $scope.$apply();
+        });
+    }
+
     $scope.close = function() {
         $j("#popUpBox").hide();
         $j("#popUpPasswordChange").hide();
