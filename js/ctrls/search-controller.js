@@ -6,12 +6,13 @@ angular.module('forumApp').controller('searchCtrl', function($scope, $location, 
     "use strict";
 
     var route = '/threads';
-    $scope.result = [];
+    $scope.searchResult = [];
 
     $scope.$on("$routeChangeSuccess", function(event, next, current) {
         console.log('params search: ' + $routeParams.searchTerm);
         $j(".active").removeClass("active");
         //$j("#headerCategories").addClass("active");
+        $scope.searchTerm = $routeParams.searchTerm;
         search();
     })
 
@@ -19,11 +20,11 @@ angular.module('forumApp').controller('searchCtrl', function($scope, $location, 
         get(getUrl(route), function(content) {
             var threadsDTO = JSON.parse(content);
             for (var i = 0; i < threadsDTO.length; i++) {
-                if (threadsDTO[i].title.toLowerCase().includes($routeParams.searchTerm.toLowerCase())) {
-                    $scope.result.push(threadsDTO[i]);
+                if (threadsDTO[i].title.toLowerCase().includes($scope.searchTerm.toLowerCase())) {
+                    $scope.searchResult.push(threadsDTO[i]);
                 }
             }
-            console.log($scope.result);
+            console.log($scope.searchResult);
             $scope.$apply();
         });
     }
