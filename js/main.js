@@ -27,6 +27,20 @@ function colorBorderGrey(inputElement) {
     inputElement.css("border", "3px solid #9EA9AB");
 }
 
+function prettifyDateStamp(dateStamp) {
+    var date = new Date(dateStamp);
+
+    return date.getDate() + ' ' +
+        date.toLocaleString('en-US', { month: "long" }) + ' ' +
+        date.getFullYear();
+}
+
+function prettifyDateTimeStamp(dateTimeStamp) {
+    var date = new Date(dateTimeStamp);
+
+    return prettifyDateStamp(dateTimeStamp) + ', ' + date.getHours() + ':' + date.getMinutes();
+}
+
 /*
 angular.module('forumApp').filter('debug', function() {
   return function(input) {

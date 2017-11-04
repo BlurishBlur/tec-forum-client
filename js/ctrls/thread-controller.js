@@ -25,8 +25,7 @@ angular.module('forumApp').controller('threadCtrl', function($scope, $location, 
                 $location.path('404');
             }
 
-            var date = new Date($scope.threadDTO.creationDate);
-            $scope.threadDTO.creationDate = date.getDate() + ' ' + date.toLocaleString('en-US', { month: "long" }) + ' ' + date.getFullYear();
+            $scope.threadDTO.creationDate = prettifyDateTimeStamp($scope.threadDTO.creationDate);
 
             $scope.$apply();
         });
@@ -35,7 +34,11 @@ angular.module('forumApp').controller('threadCtrl', function($scope, $location, 
     function getThreadComments() {
         getWithParams(getUrl('/thread/comments'), $routeParams.id, function(content) {
             $scope.commentsDTO = JSON.parse(content);
-            console.log("GetComments");
+
+            for (var i = 0; i < $scope.commentsDTO.length; i++) {
+                $scope.commentsDTO[i].creationDate = prettifyDateTimeStamp($scope.commentsDTO[i].creationDate);
+            }
+
             $scope.$apply();
         });
     }
