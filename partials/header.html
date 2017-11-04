@@ -13,8 +13,8 @@
     <li class="right dropdown">
         <span href="javascript:void(0)" class="dropbutton">My Account ({{username}})</span>
         <div class="dropdown-content">
-            <span ng-click="changePassword()" class="subSpan">Change Password</span>
-            <span ng-click="showWarning()" class="subSpan">Delete Account</span>
+            <span ng-click="showChangePassword()" class="subSpan">Change Password</span>
+            <span ng-click="showDeleteUser()" class="subSpan">Delete Account</span>
         </div>
     </li>
 </ul>
@@ -25,7 +25,7 @@
             <p>DELETE ACCOUNT</p>
         </div>
         <div class="boxBody">
-            <p>You are about to delete your account.</p>
+            <p>You are about to delete your account. This cannot be reversed.</p>
             <p>Are you sure?<br><br></p>
             <button class="button" ng-click="deleteUser()"><span>OK</span></button><button class="button right" ng-click="close()"><span>CANCEL</span></button><br><br>
         </div>
@@ -38,10 +38,10 @@
             <p>CHANGE PASSWORD</p>
         </div>
         <div class="boxBody">
-            <p>Write your new password here:</p><br>
-            <input id="passwordChange" ng-model="$root.newPassword" type="password" class="inputText" placeholder="New Password..."><br><br>
-            <input id="repeatChange" type="password" class="inputText" placeholder="Confirm Password..."><br><br>
-            <button class="button" ng-click="changePass()"><span>OK</span></button><button class="button right" ng-click="close()"><span>CANCEL</span></button><br><br>
+            <p>Write your new password here.</p><br>
+            <input id="passwordChange" ng-model="$root.newPassword" type="password" class="inputText" placeholder="New password..."><br><br>
+            <input id="repeatChange" type="password" class="inputText" placeholder="Repeat new password..."><br><br>
+            <button class="button" ng-click="changePassword()"><span>OK</span></button><button class="button right" ng-click="close()"><span>CANCEL</span></button><br><br>
         </div>
     </div>
 </div>
