@@ -114,7 +114,7 @@ angular.module('forumApp').config(function($routeProvider, $locationProvider) {
             templateUrl: 'partials/thread.html',
             controller: 'threadCtrl'
         })
-        .when('/search/:search', {
+        .when('/search/:searchTerm', {
             resolve: {
                 "check": function($location) {
                     isNotLoggedIn($location, '/');

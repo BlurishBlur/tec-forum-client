@@ -6,6 +6,7 @@ angular.module('forumApp').controller('headerCtrl', function($scope, $location) 
     "use strict";
 
     $scope.header = { name: 'header.html', url: './partials/header.html' };
+    var typingTimeout;
 
     $scope.isLoggedIn = function() {
         var isLoggedIn = getIsLoggedIn();
@@ -51,29 +52,11 @@ angular.module('forumApp').controller('headerCtrl', function($scope, $location) 
     }
 
     $scope.search = function() {
-        console.log($scope.searchTerm);
-        //$location.path('/search/' + $scope.searchTerm);
-    }
-
-});
-
-app.filter('search', function() {
-
-
-
-    return function(threadsList, searchTerm) {
-        if (!searchTerm) {
-            return threadsList;
-        }
-
-        var result = [];
-        searchTerm = searchTerm.toLowerCase();
-
-        for (var i = 0; i < threadsList.length; i++) {
-            //if (threadsList[i].)
-
-        }
-
+        clearTimeout(typingTimeout);
+        typingTimeout = setTimeout(function() {
+            $location.path('/search/' + $scope.searchTerm);
+            $scope.$apply();
+        }, 350);
     }
 
 });
