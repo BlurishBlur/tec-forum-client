@@ -38,7 +38,15 @@ function prettifyDateStamp(dateStamp) {
 function prettifyDateTimeStamp(dateTimeStamp) {
     var date = new Date(dateTimeStamp);
 
-    return prettifyDateStamp(dateTimeStamp) + ', ' + date.getHours() + ':' + date.getMinutes();
+    return prettifyDateStamp(dateTimeStamp) + ', ' +
+        padTime(date.getHours()) + ':' + padTime(date.getMinutes());
+}
+
+function padTime(time) {
+    if (time < 10) {
+        time = '0' + time;
+    }
+    return time;
 }
 
 /*
