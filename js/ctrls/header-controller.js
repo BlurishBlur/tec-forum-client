@@ -40,7 +40,7 @@ angular.module('forumApp').controller('headerCtrl', function($scope, $location) 
 
     $scope.changePass = function() {
         var user = JSON.parse(sessionStorage.getItem(userToken));
-        var newPasswordObj = JSON.stringify({newPassword: $scope.newPassword, username: user.username, id: user.id});
+        var newPasswordObj = JSON.stringify({ newPassword: $scope.newPassword, username: user.username, id: user.id });
         post(getUrl('/change'), newPasswordObj, function(content) {
             $scope.close();
             $scope.$apply();
@@ -63,8 +63,10 @@ angular.module('forumApp').controller('headerCtrl', function($scope, $location) 
     $scope.search = function() {
         clearTimeout(typingTimeout);
         typingTimeout = setTimeout(function() {
-            $location.path('/search/' + $scope.searchTerm);
-            $scope.$apply();
+            if ($scope.searchTerm) {
+                $location.path('/search/' + $scope.searchTerm);
+                $scope.$apply();
+            }
         }, 350);
     }
 
