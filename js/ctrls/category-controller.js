@@ -7,8 +7,16 @@ angular.module('forumApp').controller('categoryCtrl', function($scope, $location
 
     $scope.$on("$routeChangeSuccess", function(event, next, current) {
         console.log('paramsid : ' + $routeParams.id);
+        getCategoryName();
         getThreadsInCategory();
     })
+
+    function getCategoryName() {
+        getWithParams(getUrl('/categoryName'), $routeParams.id, function(content) {
+            $scope.categoryNameDTO = JSON.parse(content);
+            $scope.categoryTitle = $scope.categoryNameDTO.categoryName;
+        });
+    }
 
     function getThreadsInCategory() {
         $scope.categoryTitle = $routeParams.id;
