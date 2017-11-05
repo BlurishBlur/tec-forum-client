@@ -14,6 +14,8 @@ angular.module('forumApp').controller('dashboardCtrl', function($scope, $locatio
     "use strict";
 
     $scope.$on("$routeChangeSuccess", function(event, next, current) {
+        $j(".active").removeClass("active");
+        $j("#headerHome").addClass("active");
         getThreadsInDashboard();
     })
 
@@ -28,14 +30,14 @@ angular.module('forumApp').controller('dashboardCtrl', function($scope, $locatio
                 var threadDateNotation = 'second';
                 var latestActivityFactor = 1;
                 var latestActivityNotation = 'second';
-        
+
                 for (var unit in units) {
                     if (threadDateDifference > (units[unit] - 1)) {
                         threadDateFactor = units[unit];
                         threadDateNotation = unit;
                     }
 
-                    if(latestActivity > (units[unit] - 1)) {
+                    if (latestActivity > (units[unit] - 1)) {
                         latestActivityFactor = units[unit];
                         latestActivityNotation = unit;
                     }
@@ -43,7 +45,7 @@ angular.module('forumApp').controller('dashboardCtrl', function($scope, $locatio
                 $scope.threadsDTO[i].threadDateDifference = Math.round(threadDateDifference / threadDateFactor);
                 $scope.threadsDTO[i].threadDateNotation = ($scope.threadsDTO[i].threadDateDifference > 1 ? threadDateNotation + 's' : threadDateNotation);
                 $scope.threadsDTO[i].latestActivity = Math.round(latestActivity / latestActivityFactor);
-                $scope.threadsDTO[i].latestActivityNotation = ($scope.threadsDTO[i].latestActivity > 1 ? latestActivityNotation + 's' : latestActivityNotation);       
+                $scope.threadsDTO[i].latestActivityNotation = ($scope.threadsDTO[i].latestActivity > 1 ? latestActivityNotation + 's' : latestActivityNotation);
             }
 
 
