@@ -1,0 +1,44 @@
+<script type="text/javascript">
+    if (typeof angular === 'undefined') {
+        document.location.href = "/404";
+    }
+</script>
+
+<div>
+    <div class="dashboard-content">
+
+        <div class="category-title">Threads containing "{{searchTerm}}"</div>
+        <div class="dashboard-content-header">
+            <div class="dashboard-title">Post</div>
+            <div class="dashboard-comments">Comments</div>
+            <div class="dashboard-author">Author</div>
+            <div class="dashboard-freshness">Freshness</div>
+            <div class="dashboard-latest">Lastest activity</div>
+        </div>
+        <div class="dashboard-content">
+            <div class="dashboard-content-post" ng-repeat="thread in threadsDTO">
+                <div class="dashboard-title">
+                    <span class="dashboard-title-header">
+            <a href="/threads/{{thread.id}}">{{thread.title}}</a>
+          </span>
+                    <span class="dashboard-title-text">{{thread.content}}</span>
+                </div>
+                <div class="dashboard-comments">
+                    <span class="dashboard-comments-text">{{thread.commentsCount}}</span>
+                </div>
+                <div class="dashboard-author">
+                    <span class="dashboard-author-text"><a href="/users/{{thread.authorId}}">{{thread.username}}</a></span>
+                </div>
+                <div class="dashboard-freshness">
+                    <span class="dashboard-freshness-text">{{thread.threadDateDifference}} {{thread.threadDateNotation}} ago</span>
+                </div>
+                <div class="dashboard-latest">
+                    <span class="dashboard-latest-text">
+            <span class="dashboard-latest-author">By <a href="/users/{{thread.activityUsernameId}}">{{thread.activityUsername}}</a></span><br />
+                    <span class="dashboard-latest-timestamp">At {{thread.latestActivity}} {{thread.latestActivityNotation}} ago</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

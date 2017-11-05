@@ -111,7 +111,7 @@ angular.module('forumApp').config(function($routeProvider, $locationProvider) {
                     isNotLoggedIn($location, '/');
                 }
             },
-            templateUrl: 'partials/dashboard.html',
+            templateUrl: 'partials/search.html',
             controller: 'searchCtrl'
         })
         .when('/category/:id', {
