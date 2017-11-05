@@ -14,106 +14,31 @@
             <div class="dashboard-latest">Lastest activity</div>
         </div>
         <div class="dashboard-content">
-            <div class="dashboard-content-post">
+            <div class="dashboard-content-post" ng-repeat="thread in threadsDTO">
                 <div class="dashboard-title">
                     <span class="dashboard-title-header">
-            <a href="#">How to program Java</a>
-          </span>
-                    <span class="dashboard-title-text">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio, facilis repellat doloremque architecto laborum qui?
-          </span>
+                        <a href="/thread/{{thread.id}}">{{thread.title}}</a>
+                    </span>
+                    <span class="dashboard-title-text">{{thread.content}}</span>
                 </div>
                 <div class="dashboard-comments">
-                    <span class="dashboard-comments-text">24</span>
+                    <span class="dashboard-comments-text">{{thread.commentsCount}}</span>
                 </div>
                 <div class="dashboard-author">
-                    <span class="dashboard-author-text"><a href="/userdata">Anton</a></span>
-                </div>
-                <div class="dashboard-freshness">
-                    <span class="dashboard-freshness-text">3 hours ago</span>
-                </div>
-                <div class="dashboard-latest">
-                    <span class="dashboard-latest-text">
-            <span class="dashboard-latest-author">By <a href="#">Niels</a></span><br />
-                    <span class="dashboard-latest-timestamp">At 15:14</span>
+                    <span class="dashboard-author-text">
+                        <a href="/users/{{thread.authorId}}">{{thread.username}}</a>
                     </span>
                 </div>
-            </div>
-
-            <div class="dashboard-content-post">
-                <div class="dashboard-title">
-                    <span class="dashboard-title-header">
-              <a href="#">How to program C#</a>
-            </span>
-                    <span class="dashboard-title-text">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio, facilis repellat doloremque architecto laborum qui?
-            </span>
-                </div>
-                <div class="dashboard-comments">
-                    <span class="dashboard-comments-text">24</span>
-                </div>
-                <div class="dashboard-author">
-                    <span class="dashboard-author-text"><a href="#">Anton</a></span>
-                </div>
                 <div class="dashboard-freshness">
-                    <span class="dashboard-freshness-text">3 hours ago</span>
+                    <span class="dashboard-freshness-text">{{thread.threadDateDifference}} {{thread.threadDateNotation}} ago</span>
                 </div>
                 <div class="dashboard-latest">
                     <span class="dashboard-latest-text">
-                  <span class="dashboard-latest-author">By <a href="#">Niels</a></span><br />
-                    <span class="dashboard-latest-timestamp">At 15:14</span>
-                    </span>
-                </div>
-            </div>
-
-            <div class="dashboard-content-post">
-                <div class="dashboard-title">
-                    <span class="dashboard-title-header">
-                <a href="#">Ten bad things about Featureous</a>
-              </span>
-                    <span class="dashboard-title-text">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio, facilis repellat doloremque architecto laborum qui?
-              </span>
-                </div>
-                <div class="dashboard-comments">
-                    <span class="dashboard-comments-text">24</span>
-                </div>
-                <div class="dashboard-author">
-                    <span class="dashboard-author-text"><a href="#">Anton</a></span>
-                </div>
-                <div class="dashboard-freshness">
-                    <span class="dashboard-freshness-text">4 days ago</span>
-                </div>
-                <div class="dashboard-latest">
-                    <span class="dashboard-latest-text">
-                    <span class="dashboard-latest-author">By <a href="#">Niels</a></span><br />
-                    <span class="dashboard-latest-timestamp">At 15:14</span>
-                    </span>
-                </div>
-            </div>
-
-            <div class="dashboard-content-post">
-                <div class="dashboard-title">
-                    <span class="dashboard-title-header">
-                  <a href="#">How LOBO saves the Software Engineering industry</a>
-                </span>
-                    <span class="dashboard-title-text">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio, facilis repellat doloremque architecto laborum qui?
-                </span>
-                </div>
-                <div class="dashboard-comments">
-                    <span class="dashboard-comments-text">24</span>
-                </div>
-                <div class="dashboard-author">
-                    <span class="dashboard-author-text"><a href="#">Anton</a></span>
-                </div>
-                <div class="dashboard-freshness">
-                    <span class="dashboard-freshness-text">3 hours ago</span>
-                </div>
-                <div class="dashboard-latest">
-                    <span class="dashboard-latest-text">
-                      <span class="dashboard-latest-author">By <a href="#">Niels</a></span><br />
-                    <span class="dashboard-latest-timestamp">At 15:14</span>
+                        <span class="dashboard-latest-author">By
+                            <a href="/users/{{thread.activityUsernameId}}">{{thread.activityUsername}}</a>
+                        </span>
+                        <br />
+                        <span class="dashboard-latest-timestamp">{{thread.latestActivity}} {{thread.latestActivityNotation}} ago</span>
                     </span>
                 </div>
             </div>
