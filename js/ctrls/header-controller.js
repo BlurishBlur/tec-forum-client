@@ -38,8 +38,48 @@ angular.module('forumApp').controller('headerCtrl', function($scope, $location) 
         $j("#popUpPasswordChange").show();
     }
 
+    function reset() {
+        $scope.passwordReturnMessage = '';
+        $scope.repeatPasswordReturnMessage = '';
+        colorBorderGrey($j("#passwordChange"));
+        colorBorderGrey($j("#repeatChange"));
+        $j(".inputText").removeClass("inputTextAnimation");
+    }
+
     $scope.changePassword = function() {
+        reset();
         var user = JSON.parse(sessionStorage.getItem(userToken));
+        var errors = 0;
+        // Check password
+        if ($scope.newPassword == undefined || $scope.newPassword.length < 6) {
+            $scope.passwordReturnMessage = "Please check that password is more than 6 characters.";
+            colorBorderRed($j("#passwordChange"));
+            errors++;
+        }
+        // Check if pass and username is equal
+        if (user.username != undefined && $scope.newPassword != undefined && user.username === $scope.newPassword) {
+            $scope.passwordReturnMessage = "Username and password cannot be the same.";
+            colorBorderRed($j("#passwordChange"));
+            errors++;
+        }
+        // Check if passwords matches
+        if ($scope.newPassword === undefined || $scope.newPasswordRepeat === undefined || $scope.newPassword !== $scope.newPasswordRepeat) {
+            $scope.repeatPasswordReturnMessage = "Password does not match.";
+            colorBorderRed($j("#passwordChange"));
+            colorBorderRed($j("#repeatChange"));
+            errors++;
+        }
+        if (errors === 0) {
+            postPassword(user);
+            $j(".inputText").removeClass("inputTextAnimation");
+        } else {
+            $j(".inputText").addClass("inputTextAnimation").one("animationend", function() {
+                $scope.returnMessage = "There " + (errors > 1 ? " were " + errors + " errors" : " was 1 error") + ".";
+            });
+        }
+    }
+
+    function postPassword(user) {
         var newPasswordObj = JSON.stringify({ newPassword: $scope.newPassword, username: user.username, id: user.id });
         post(getUrl('/change'), newPasswordObj, function(content) {
             $scope.close();
@@ -48,6 +88,7 @@ angular.module('forumApp').controller('headerCtrl', function($scope, $location) 
     }
 
     $scope.close = function() {
+        reset();
         $j("#popUpBox").hide();
         $j("#popUpPasswordChange").hide();
     }

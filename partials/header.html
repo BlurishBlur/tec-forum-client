@@ -39,8 +39,9 @@
         </div>
         <div class="boxBody">
             <p>Write your new password here.</p><br>
-            <input id="passwordChange" ng-model="$root.newPassword" type="password" class="inputText" placeholder="New password..."><br><br>
-            <input id="repeatChange" type="password" class="inputText" placeholder="Repeat new password..."><br><br>
+            <input id="passwordChange" ng-model="$root.newPassword" type="password" class="inputText inputTextNewPassword" placeholder="New password..."><span>{{passwordReturnMessage}} </span><br><br>
+            <input id="repeatChange" ng-model="$root.newPasswordRepeat" type="password" class="inputText inputTextNewPassword" placeholder="Repeat new password..."><span>{{repeatPasswordReturnMessage}}</span>
+            <br><br><span>{{returnMessage}}</span><br><br>
             <button class="button" ng-click="changePassword()"><span>OK</span></button><button class="button right" ng-click="close()"><span>CANCEL</span></button><br><br>
         </div>
     </div>

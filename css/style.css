@@ -216,6 +216,14 @@ li span:hover:not(.active) {
     transform: translate3d(0, 0, 0);
 }
 
+.inputTextNewPassword {
+    margin-right: 10px;
+}
+
+.inputTextAnimation {
+    width: 450px;
+}
+
 .animation {
     animation: shake 0.5s;
 }
