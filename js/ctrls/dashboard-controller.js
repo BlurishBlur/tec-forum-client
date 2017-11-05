@@ -1,6 +1,14 @@
 /*global angular*/
 /*jslint browser: true*/
 /*global $, jQuery, alert*/
+var units = { // conversion from seconds to other units
+    "minute": 60,
+    "hour": 60 * 60,
+    "day": 60 * 60 * 24,
+    "week": 60 * 60 * 24 * 7,
+    "month": 60 * 60 * 24 * 7 * 4,
+    "year": 60 * 60 * 24 * 7 * 4 * 12
+}
 
 angular.module('forumApp').controller('dashboardCtrl', function($scope, $location) {
     "use strict";
