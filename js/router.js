@@ -87,6 +87,15 @@ angular.module('forumApp').config(function($routeProvider, $locationProvider) {
             templateUrl: 'partials/categories.html',
             controller: 'categoriesCtrl'
         })
+        .when('/mytopics', {
+            resolve: {
+                "check": function($location) {
+                    isNotLoggedIn($location, '/');
+                }
+            },
+            templateUrl: 'partials/mytopics.html',
+            controller: 'mytopicsCtrl'
+        })
         .when('/users/:id', {
             resolve: {
                 "check": function($location) {

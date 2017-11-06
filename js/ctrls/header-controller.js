@@ -24,6 +24,10 @@ angular.module('forumApp').controller('headerCtrl', function($scope, $location) 
         $location.path('/categories');
     }
 
+    $scope.goToMytopics = function() {
+        $location.path('/mytopics');
+    }
+
     $scope.logOut = function() {
         sessionStorage.setItem(loggedInToken, JSON.stringify(false));
         $scope.close();
