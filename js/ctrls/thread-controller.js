@@ -36,9 +36,6 @@ angular.module('forumApp').controller('threadCtrl', function($scope, $location, 
 
             for (var i = 0; i < $scope.commentsDTO.length; i++) {
                 $scope.commentsDTO[i].creationDate = prettifyDateTimeStamp($scope.commentsDTO[i].creationDate);
-                if ($scope.commentsDTO[i].author == undefined) {
-                    $scope.commentsDTO[i].author = '[Deleted user]';
-                }
             }
 
             $scope.$apply();
