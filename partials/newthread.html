@@ -1,0 +1,25 @@
+<script type="text/javascript">
+    if (typeof angular === 'undefined') {
+        document.location.href = "/404";
+    }
+</script>
+
+<div>
+    <div class="newthread-content">
+        <div id="newthread-username">Create thread</div>
+        <div id="newthread-category">In {{categoryName}}</div>
+
+            <div class="newthread-thread">
+                <div class="newthread-title">
+                    <input type="text" ng-model="title" placeholder="Thread title" />
+                </div>
+                <div class="newthread-content">
+                    <textarea placeholder="Thread content" ng-model="content"></textarea>
+                </div>
+                <div class="newthread-button">
+                    <input type="button" value="Create thread" ng-click="submitThread()"/>
+                </div>
+            </div>
+
+    </div>
+</div>

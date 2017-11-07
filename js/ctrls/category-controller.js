@@ -19,6 +19,10 @@ angular.module('forumApp').controller('categoryCtrl', function($scope, $location
         getThreadsInCategory();
     })
 
+    $scope.goToNewThread = function() {
+        $location.path('/newthread/' + $routeParams.id + '/' + $scope.categoryTitle);
+    }
+
     function getCategoryName() {
         getWithParams(getUrl('/categoryName'), $routeParams.id, function(content) {
             $scope.categoryNameDTO = JSON.parse(content);

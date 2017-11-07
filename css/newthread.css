@@ -1,0 +1,67 @@
+.newthread-content {
+    margin: 30px auto 0 auto;
+    width: 1000px;
+    border: 0px solid black;
+    font-family: 'Open-Sans', sans-serif;
+    font-weight: lighter;
+    color: #4c585f;
+}
+
+.newthread-content a {
+    text-decoration: none;
+    color: #4c585f;
+}
+
+.newthread-content a:hover {
+    cursor: pointer;
+    color: #4e8cb3;
+}
+
+#newthread-username {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: lighter;
+    font-size: 4rem;
+}
+
+#newthread-category {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.4rem;
+}
+
+.newthread-thread {
+    width: 1000px;
+    border: 0px solid black;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 50px;
+}
+
+.newthread-thread .newthread-title input {
+    width: 600px;
+    height: 40px;
+    font-size: 1.5rem;
+    border: 1px solid rgb(230, 230, 230);    
+}
+
+.newthread-thread .newthread-content textarea {
+    width: 600px;
+    min-width: 600px;
+    height: 150px;
+    min-height: 150px;
+    font-size: 1.05rem;
+    border: 1px solid rgb(230, 230, 230);    
+}
+
+.newthread-thread .newthread-button input {
+    font-family: 'Quicksand', sans-serif;
+    border: 1px solid #353d42;
+    background: rgb(241, 241, 241);
+    font-size: 0.8rem;
+    width: 150px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.newthread-thread .newthread-button input:hover {
+    background: rgb(230, 230, 230);
+}
