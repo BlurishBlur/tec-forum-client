@@ -25,8 +25,11 @@
                     <span class="dashboard-comments-text">{{thread.commentsCount}}</span>
                 </div>
                 <div class="dashboard-author">
-                    <span class="dashboard-author-text">
+                    <span class="dashboard-author-text" ng-if="thread.username != '[Deleted user]'">
                         <a href="/users/{{thread.authorId}}">{{thread.username}}</a>
+                    </span>
+                    <span class="dashboard-author-text" ng-if="thread.username == '[Deleted user]'">
+                        {{thread.username}}
                     </span>
                 </div>
                 <div class="dashboard-freshness">
@@ -34,8 +37,11 @@
                 </div>
                 <div class="dashboard-latest">
                     <span class="dashboard-latest-text">
-                        <span class="dashboard-latest-author">By
+                        <span class="dashboard-latest-author" ng-if="thread.activityUsername != '[Deleted user]'">By
                             <a href="/users/{{thread.activityUsernameId}}">{{thread.activityUsername}}</a>
+                        </span>
+                        <span class="dashboard-latest-author" ng-if="thread.activityUsername == '[Deleted user]'">By
+                            {{thread.activityUsername}}
                         </span>
                         <br />
                         <span class="dashboard-latest-timestamp">{{thread.latestActivity}} {{thread.latestActivityNotation}} ago</span>

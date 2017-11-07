@@ -8,16 +8,21 @@
     <div class="thread-content">
         <section class="thread-section">
             <div class="thread-title">{{threadDTO.title}}</div>
-            <div class="thread-metadata">By
+            <div class="thread-metadata" ng-if="threadDTO.author != '[Deleted user]'">By
                 <a href="/users/{{threadDTO.authorId}}">{{threadDTO.author}}</a> &middot; {{threadDTO.creationDate}}</div>
+            <div class="thread-metadata" ng-if="threadDTO.author == '[Deleted user]'">By
+                {{threadDTO.author}} &middot; {{threadDTO.creationDate}}</div>
             <div class="thread-text">{{threadDTO.content}}</div>
         </section>
         <section class="comment-section">
             <div class="comment-header">Comments</div>
             <div class="thread-comment" ng-repeat="comment in commentsDTO">
                 <div class="comment-metadata comment-data">
-                    <span class="comment-author">
+                    <span class="comment-author" ng-if="comment.author != '[Deleted user]'">
                         <a href="/users/{{comment.authorId}}">{{comment.author}}</a>
+                    </span>
+                    <span class="comment-author" ng-if="comment.author == '[Deleted user]'">
+                        {{comment.author}}
                     </span>
                     <br />
                     <span class="comment-date">{{comment.creationDate}}</span>
