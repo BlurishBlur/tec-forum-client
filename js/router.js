@@ -13,6 +13,7 @@ function xmlHttp(method, url, data, callback) {
         console.log('Error connecting to server.');
     }
     xmlHttp.open(method, url, true); // true for asynchronous 
+    xmlHttp.setRequestHeader('Content-Type', 'application/json')
     xmlHttp.send(data);
 }
 
