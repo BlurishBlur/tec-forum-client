@@ -14,6 +14,7 @@ function xmlHttp(method, url, data, callback) {
     }
     xmlHttp.open(method, url, true); // true for asynchronous 
     xmlHttp.setRequestHeader('Content-Type', 'application/json')
+    xmlHttp.withCredentials = true
     xmlHttp.send(data);
 }
 
