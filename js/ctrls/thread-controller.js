@@ -1,23 +1,28 @@
-angular.module('forumApp').controller('threadCtrl', function($scope, $location, $routeParams, $interval) {
+angular.module('forumApp').controller('threadCtrl', function ($scope, $location, $routeParams, $interval) {
     "use strict";
 
     var interval;
+    var socket = io(getUrl('/'));
 
-    $scope.$on("$routeChangeSuccess", function(event, next, current) {
+    $scope.$on("$routeChangeSuccess", function (event, next, current) {
         getThread();
         getThreadComments();
 
         // Polling
-        interval = $interval(getThreadComments, 5000);
+        //interval = $interval(getThreadComments, 5000);
+        var listenerId = "thread" + $routeParams.id;
+        socket.on(listenerId, function (listener) {
+            console.log(listener);
+        });
     })
 
-    $scope.$on("$destroy", function() {
+    $scope.$on("$destroy", function () {
         // Stop polling when leaving thread
         $interval.cancel(interval);
     });
 
     function getThread() {
-        getWithParams(getUrl('/thread'), $routeParams.id, function(content) {
+        getWithParams(getUrl('/thread'), $routeParams.id, function (content) {
             $scope.threadDTO = JSON.parse(content);
 
             if ($j.isEmptyObject($scope.threadDTO)) {
@@ -31,7 +36,7 @@ angular.module('forumApp').controller('threadCtrl', function($scope, $location, 
     }
 
     function getThreadComments() {
-        getWithParams(getUrl('/thread/comments'), $routeParams.id, function(content) {
+        getWithParams(getUrl('/thread/comments'), $routeParams.id, function (content) {
             $scope.commentsDTO = JSON.parse(content);
 
             for (var i = 0; i < $scope.commentsDTO.length; i++) {
@@ -42,7 +47,7 @@ angular.module('forumApp').controller('threadCtrl', function($scope, $location, 
         });
     }
 
-    $scope.submitComment = function() {
+    $scope.submitComment = function () {
         console.log("Submit clicked");
         console.log($scope.comment);
         if ($scope.comment === "" || $scope.comment === undefined) {
@@ -52,11 +57,13 @@ angular.module('forumApp').controller('threadCtrl', function($scope, $location, 
             var userID = JSON.parse(sessionStorage.getItem(userToken)).id;
             console.log(userID);
             var commentParams = JSON.stringify({ threadId: $routeParams.id, authorId: userID, comment: $scope.comment });
-            put(getUrl('/thread/submitComment'), commentParams, function(content) {
+            put(getUrl('/thread/submitComment'), commentParams, function (content) {
                 console.log("Submit sent");
                 $scope.comment = '';
                 getThreadComments();
                 console.log("Submit comment response: " + content);
+
+                socket.emit('newComment', { threadId: $routeParams.id });
             })
         }
     }
