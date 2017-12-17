@@ -6,6 +6,7 @@ var app = angular.module('forumApp', ['ngRoute']);
 var loggedInToken = 'loggedIn';
 var userToken = 'user';
 var config;
+
 $j.getJSON('./cfg/config.json', function(response) {
     config = response;
 });
@@ -48,7 +49,6 @@ function padTime(time) {
     }
     return time;
 }
-
 /*
 angular.module('forumApp').filter('debug', function() {
   return function(input) {

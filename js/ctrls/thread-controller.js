@@ -1,24 +1,23 @@
-angular.module('forumApp').controller('threadCtrl', function ($scope, $location, $routeParams, $interval) {
+angular.module('forumApp').controller('threadCtrl', function ($scope, $location, $routeParams) {
     "use strict";
 
     var interval;
     var socket = io(getUrl('/'));
-
     $scope.$on("$routeChangeSuccess", function (event, next, current) {
         getThread();
         getThreadComments();
 
-        // Polling
-        //interval = $interval(getThreadComments, 5000);
-        var listenerId = "thread" + $routeParams.id;
-        socket.on(listenerId, function (listener) {
-            console.log(listener);
+        var roomId = "thread" + $routeParams.id;
+        socket.emit('join', roomId);
+
+        socket.on('update', function(data) {
+            updateComments(data);
         });
     })
 
     $scope.$on("$destroy", function () {
-        // Stop polling when leaving thread
-        $interval.cancel(interval);
+        var roomId = "thread" + $routeParams.id;
+        socket.disconnect();
     });
 
     function getThread() {
@@ -47,21 +46,29 @@ angular.module('forumApp').controller('threadCtrl', function ($scope, $location,
         });
     }
 
+    function updateComments(comments) {
+        $scope.commentsDTO = JSON.parse(comments);
+
+        for (var i = 0; i < $scope.commentsDTO.length; i++) {
+            $scope.commentsDTO[i].creationDate = prettifyDateTimeStamp($scope.commentsDTO[i].creationDate);
+        }
+
+        $scope.$apply();
+    }
+
     $scope.submitComment = function () {
         console.log("Submit clicked");
-        console.log($scope.comment);
+ 
         if ($scope.comment === "" || $scope.comment === undefined) {
             $j(".commentMessage").show();
         } else {
             $j(".commentMessage").hide();
             var userID = JSON.parse(sessionStorage.getItem(userToken)).id;
-            console.log(userID);
             var commentParams = JSON.stringify({ threadId: $routeParams.id, authorId: userID, comment: $scope.comment });
             put(getUrl('/thread/submitComment'), commentParams, function (content) {
                 console.log("Submit sent");
                 $scope.comment = '';
                 getThreadComments();
-                console.log("Submit comment response: " + content);
 
                 socket.emit('newComment', { threadId: $routeParams.id });
             })
