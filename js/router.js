@@ -16,6 +16,7 @@ function xmlHttp(method, url, data, callback) {
     xmlHttp.setRequestHeader('Content-Type', 'application/json')
     xmlHttp.withCredentials = true
         //xmlHttp.setRequestHeader('Authorization', '')
+        //console.log('auth-token');
     xmlHttp.send(data);
 }
 
