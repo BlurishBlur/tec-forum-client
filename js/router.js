@@ -1,7 +1,6 @@
 /*global angular*/
 /*jslint browser: true*/
 /*global $, jQuery, alert*/
-
 function xmlHttp(method, url, data, callback) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
@@ -13,12 +12,34 @@ function xmlHttp(method, url, data, callback) {
         console.log('Error connecting to server.');
     }
     xmlHttp.open(method, url, true); // true for asynchronous 
-    xmlHttp.setRequestHeader('Content-Type', 'application/json')
-    xmlHttp.withCredentials = true
-        //xmlHttp.setRequestHeader('Authorization', '')
-        //console.log('auth-token');
+    xmlHttp.setRequestHeader('Content-Type', 'application/json');
+    xmlHttp.withCredentials = true;
+    xmlHttp.setRequestHeader('authorization', getCookie('auth-token'));
     xmlHttp.send(data);
 }
+
+function getCookie(cookieName) {
+    var name = cookieName + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    return decodedCookie.substring(name.length, decodedCookie.length);
+}
+/*
+function getCookie(cookieName) {
+    var name = cookieName + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            console.log("FOUND COOKIE" + c);
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}*/
 
 function get(url, callback) {
     xmlHttp('GET', url, null, callback);
