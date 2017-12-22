@@ -15,6 +15,7 @@ function xmlHttp(method, url, data, callback) {
     xmlHttp.open(method, url, true); // true for asynchronous 
     xmlHttp.setRequestHeader('Content-Type', 'application/json')
     xmlHttp.withCredentials = true
+        //xmlHttp.setRequestHeader('Authorization', '')
     xmlHttp.send(data);
 }
 
@@ -106,7 +107,7 @@ angular.module('forumApp').config(function($routeProvider, $locationProvider) {
             },
             templateUrl: 'partials/newthread.html',
             controller: 'newthreadCtrl'
-        })   
+        })
         .when('/users/:id', {
             resolve: {
                 "check": function($location) {
@@ -142,6 +143,9 @@ angular.module('forumApp').config(function($routeProvider, $locationProvider) {
             },
             templateUrl: 'partials/category.html',
             controller: 'categoryCtrl'
+        })
+        .when('/403', {
+            templateUrl: 'partials/403.html'
         })
         .when('/404', {
             templateUrl: 'partials/404.html'
