@@ -30,8 +30,13 @@ angular.module('forumApp').controller('headerCtrl', function($scope, $location) 
 
     $scope.logOut = function() {
         sessionStorage.setItem(loggedInToken, JSON.stringify(false));
+        deleteCookie();
         $scope.close();
         $location.path('/');
+    }
+
+    function deleteCookie() {
+        document.cookie = 'auth-token' + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     }
 
     $scope.showDeleteUser = function() {
